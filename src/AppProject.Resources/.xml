@@ -102,6 +102,11 @@
               Looks up a localized string similar to Unhandled exception..
             </summary>
         </member>
+        <member name="P:AppProject.Resources.Resource.Financial_HomePage_Title">
+            <summary>
+              Looks up a localized string similar to Financial.
+            </summary>
+        </member>
         <member name="P:AppProject.Resources.Resource.Footer_Text">
             <summary>
               Looks up a localized string similar to Copyright © Your Company Name. All rights reserved..
@@ -445,6 +450,11 @@
         <member name="P:AppProject.Resources.Resource.ModelFormControl_SaveButton_Text">
             <summary>
               Looks up a localized string similar to Save.
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.NavMenu_Financial_Title">
+            <summary>
+              Looks up a localized string similar to Financial.
             </summary>
         </member>
         <member name="P:AppProject.Resources.Resource.NotAuthorized_Message">

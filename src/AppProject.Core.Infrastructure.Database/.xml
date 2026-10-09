@@ -40,5 +40,17 @@
         <member name="M:AppProject.Core.Infrastructure.Database.Migrations.CountriesStatesCities.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
         </member>
+        <member name="T:AppProject.Core.Infrastructure.Database.Migrations.Financial">
+            <inheritdoc />
+        </member>
+        <member name="M:AppProject.Core.Infrastructure.Database.Migrations.Financial.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:AppProject.Core.Infrastructure.Database.Migrations.Financial.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:AppProject.Core.Infrastructure.Database.Migrations.Financial.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
     </members>
 </doc>

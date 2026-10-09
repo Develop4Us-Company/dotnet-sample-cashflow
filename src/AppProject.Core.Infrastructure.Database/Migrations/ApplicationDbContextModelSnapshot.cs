@@ -17,7 +17,7 @@ namespace AppProject.Core.Infrastructure.Database.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "9.0.10")
+                .HasAnnotation("ProductVersion", "10.0.1")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -71,6 +71,228 @@ namespace AppProject.Core.Infrastructure.Database.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("AppProject.Core.Infrastructure.Database.Entities.Financial.TbAccountPayable", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<decimal>("Amount")
+                        .HasPrecision(18, 2)
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<DateTimeOffset>("CreatedAt")
+                        .HasColumnType("datetimeoffset");
+
+                    b.Property<Guid>("CreatedByUserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("CreatedByUserName")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
+                    b.Property<DateTimeOffset>("DueDate")
+                        .HasColumnType("datetimeoffset");
+
+                    b.Property<Guid?>("FinancialAccountId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("FinancialCategoryId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool>("IsPaid")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTimeOffset?>("PaymentDate")
+                        .HasColumnType("datetimeoffset");
+
+                    b.Property<byte[]>("RowVersion")
+                        .IsConcurrencyToken()
+                        .IsRequired()
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("rowversion");
+
+                    b.Property<DateTimeOffset?>("UpdatedAt")
+                        .HasColumnType("datetimeoffset");
+
+                    b.Property<Guid?>("UpdatedByUserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("UpdatedByUserName")
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("FinancialAccountId");
+
+                    b.HasIndex("FinancialCategoryId");
+
+                    b.ToTable("AccountsPayable");
+                });
+
+            modelBuilder.Entity("AppProject.Core.Infrastructure.Database.Entities.Financial.TbAccountReceivable", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<decimal>("Amount")
+                        .HasPrecision(18, 2)
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<DateTimeOffset>("CreatedAt")
+                        .HasColumnType("datetimeoffset");
+
+                    b.Property<Guid>("CreatedByUserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("CreatedByUserName")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
+                    b.Property<DateTimeOffset>("DueDate")
+                        .HasColumnType("datetimeoffset");
+
+                    b.Property<Guid?>("FinancialAccountId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("FinancialCategoryId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool>("IsReceived")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTimeOffset?>("ReceiptDate")
+                        .HasColumnType("datetimeoffset");
+
+                    b.Property<byte[]>("RowVersion")
+                        .IsConcurrencyToken()
+                        .IsRequired()
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("rowversion");
+
+                    b.Property<DateTimeOffset?>("UpdatedAt")
+                        .HasColumnType("datetimeoffset");
+
+                    b.Property<Guid?>("UpdatedByUserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("UpdatedByUserName")
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("FinancialAccountId");
+
+                    b.HasIndex("FinancialCategoryId");
+
+                    b.ToTable("AccountsReceivable");
+                });
+
+            modelBuilder.Entity("AppProject.Core.Infrastructure.Database.Entities.Financial.TbFinancialAccount", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTimeOffset>("CreatedAt")
+                        .HasColumnType("datetimeoffset");
+
+                    b.Property<Guid>("CreatedByUserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("CreatedByUserName")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<byte[]>("RowVersion")
+                        .IsConcurrencyToken()
+                        .IsRequired()
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("rowversion");
+
+                    b.Property<DateTimeOffset?>("UpdatedAt")
+                        .HasColumnType("datetimeoffset");
+
+                    b.Property<Guid?>("UpdatedByUserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("UpdatedByUserName")
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Name");
+
+                    b.ToTable("FinancialAccounts");
+                });
+
+            modelBuilder.Entity("AppProject.Core.Infrastructure.Database.Entities.Financial.TbFinancialCategory", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTimeOffset>("CreatedAt")
+                        .HasColumnType("datetimeoffset");
+
+                    b.Property<Guid>("CreatedByUserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("CreatedByUserName")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<byte[]>("RowVersion")
+                        .IsConcurrencyToken()
+                        .IsRequired()
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("rowversion");
+
+                    b.Property<DateTimeOffset?>("UpdatedAt")
+                        .HasColumnType("datetimeoffset");
+
+                    b.Property<Guid?>("UpdatedByUserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("UpdatedByUserName")
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Name");
+
+                    b.ToTable("FinancialCategories");
                 });
 
             modelBuilder.Entity("AppProject.Core.Infrastructure.Database.Entities.General.TbCity", b =>
@@ -285,6 +507,42 @@ namespace AppProject.Core.Infrastructure.Database.Migrations
                     b.ToTable("States");
                 });
 
+            modelBuilder.Entity("AppProject.Core.Infrastructure.Database.Entities.Financial.TbAccountPayable", b =>
+                {
+                    b.HasOne("AppProject.Core.Infrastructure.Database.Entities.Financial.TbFinancialAccount", "FinancialAccount")
+                        .WithMany("AccountsPayable")
+                        .HasForeignKey("FinancialAccountId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("AppProject.Core.Infrastructure.Database.Entities.Financial.TbFinancialCategory", "FinancialCategory")
+                        .WithMany("AccountsPayable")
+                        .HasForeignKey("FinancialCategoryId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("FinancialAccount");
+
+                    b.Navigation("FinancialCategory");
+                });
+
+            modelBuilder.Entity("AppProject.Core.Infrastructure.Database.Entities.Financial.TbAccountReceivable", b =>
+                {
+                    b.HasOne("AppProject.Core.Infrastructure.Database.Entities.Financial.TbFinancialAccount", "FinancialAccount")
+                        .WithMany("AccountsReceivable")
+                        .HasForeignKey("FinancialAccountId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("AppProject.Core.Infrastructure.Database.Entities.Financial.TbFinancialCategory", "FinancialCategory")
+                        .WithMany("AccountsReceivable")
+                        .HasForeignKey("FinancialCategoryId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("FinancialAccount");
+
+                    b.Navigation("FinancialCategory");
+                });
+
             modelBuilder.Entity("AppProject.Core.Infrastructure.Database.Entities.General.TbCity", b =>
                 {
                     b.HasOne("AppProject.Core.Infrastructure.Database.Entities.General.TbState", "State")
@@ -316,6 +574,20 @@ namespace AppProject.Core.Infrastructure.Database.Migrations
                         .IsRequired();
 
                     b.Navigation("Country");
+                });
+
+            modelBuilder.Entity("AppProject.Core.Infrastructure.Database.Entities.Financial.TbFinancialAccount", b =>
+                {
+                    b.Navigation("AccountsPayable");
+
+                    b.Navigation("AccountsReceivable");
+                });
+
+            modelBuilder.Entity("AppProject.Core.Infrastructure.Database.Entities.Financial.TbFinancialCategory", b =>
+                {
+                    b.Navigation("AccountsPayable");
+
+                    b.Navigation("AccountsReceivable");
                 });
 
             modelBuilder.Entity("AppProject.Core.Infrastructure.Database.Entities.General.TbCity", b =>
