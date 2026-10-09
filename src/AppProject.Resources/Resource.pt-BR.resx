@@ -44,6 +44,21 @@
     <value>Esse nome de bairro já existe para a mesma cidade.</value>
   </data>
 
+  <data name="Financial_FinancialAccount_DuplicateName" xml:space="preserve">
+    <value>Já existe uma conta financeira com esse nome.</value>
+  </data>
+  <data name="Financial_FinancialAccount_InUse" xml:space="preserve">
+    <value>Esta conta financeira está vinculada a contas a pagar ou receber e não pode ser excluída.</value>
+  </data>
+
+  <!--Financial Permissions-->
+  <data name="Permission_Financial_ManageFinancialAccounts_Name" xml:space="preserve">
+    <value>Gerenciar contas financeiras</value>
+  </data>
+  <data name="Permission_Financial_ManageFinancialAccounts_Description" xml:space="preserve">
+    <value>Criar, consultar, editar e excluir contas financeiras.</value>
+  </data>
+
   <!--Frontend-->
   <data name="Footer_Text" xml:space="preserve">
     <value>Copyright © Nome da Sua Empresa. Todos os direitos reservados.</value>
@@ -257,13 +272,39 @@
     <value>Cidades</value>
   </data>
 
+  <data name="NavMenu_Financial_FinancialAccount_Text" xml:space="preserve">
+    <value>Contas financeiras</value>
+  </data>
   <data name="NavMenu_Financial_Title" xml:space="preserve">
     <value>Financeiro</value>
   </data>
 
-  <!--Frontend Financial/HomePage-->
-  <data name="Financial_HomePage_Title" xml:space="preserve">
-    <value>Financeiro</value>
+  <!--Frontend Financial/FinancialAccountSummaryPage-->
+  <data name="Financial_FinancialAccountSummaryPage_Title" xml:space="preserve">
+    <value>Contas financeiras</value>
+  </data>
+  <data name="Financial_FinancialAccountSummaryPage_NameColumn_Title" xml:space="preserve">
+    <value>Nome</value>
+  </data>
+
+  <!--Frontend Financial/FinancialAccountFormPage-->
+  <data name="Financial_FinancialAccountFormPage_Title" xml:space="preserve">
+    <value>Conta financeira</value>
+  </data>
+  <data name="Financial_FinancialAccountFormPage_GeneralFieldset_Title" xml:space="preserve">
+    <value>Geral</value>
+  </data>
+  <data name="Financial_FinancialAccountFormPage_GeneralFieldset_IdField_Text" xml:space="preserve">
+    <value>Id: {0}</value>
+  </data>
+  <data name="Financial_FinancialAccountFormPage_GeneralFieldset_NameField_Label" xml:space="preserve">
+    <value>Nome</value>
+  </data>
+  <data name="Financial_FinancialAccountFormPage_GeneralFieldset_NameField_Required" xml:space="preserve">
+    <value>Nome é obrigatório</value>
+  </data>
+  <data name="Financial_FinancialAccountFormPage_GeneralFieldset_NameField_InvalidLength" xml:space="preserve">
+    <value>Tamanho máximo: 100</value>
   </data>
 
   <!--Frontend General/CountrySummaryPage-->

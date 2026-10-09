@@ -102,9 +102,54 @@
               Looks up a localized string similar to Unhandled exception..
             </summary>
         </member>
-        <member name="P:AppProject.Resources.Resource.Financial_HomePage_Title">
+        <member name="P:AppProject.Resources.Resource.Financial_FinancialAccount_DuplicateName">
             <summary>
-              Looks up a localized string similar to Financial.
+              Looks up a localized string similar to This financial account name already exists..
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Financial_FinancialAccount_InUse">
+            <summary>
+              Looks up a localized string similar to This financial account is linked to accounts payable or receivable and cannot be deleted..
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Financial_FinancialAccountFormPage_GeneralFieldset_IdField_Text">
+            <summary>
+              Looks up a localized string similar to Id: {0}.
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Financial_FinancialAccountFormPage_GeneralFieldset_NameField_InvalidLength">
+            <summary>
+              Looks up a localized string similar to Max length: 100.
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Financial_FinancialAccountFormPage_GeneralFieldset_NameField_Label">
+            <summary>
+              Looks up a localized string similar to Name.
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Financial_FinancialAccountFormPage_GeneralFieldset_NameField_Required">
+            <summary>
+              Looks up a localized string similar to Name is required.
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Financial_FinancialAccountFormPage_GeneralFieldset_Title">
+            <summary>
+              Looks up a localized string similar to General.
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Financial_FinancialAccountFormPage_Title">
+            <summary>
+              Looks up a localized string similar to Financial account.
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Financial_FinancialAccountSummaryPage_NameColumn_Title">
+            <summary>
+              Looks up a localized string similar to Name.
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Financial_FinancialAccountSummaryPage_Title">
+            <summary>
+              Looks up a localized string similar to Financial accounts.
             </summary>
         </member>
         <member name="P:AppProject.Resources.Resource.Footer_Text">
@@ -452,6 +497,11 @@
               Looks up a localized string similar to Save.
             </summary>
         </member>
+        <member name="P:AppProject.Resources.Resource.NavMenu_Financial_FinancialAccount_Text">
+            <summary>
+              Looks up a localized string similar to Financial accounts.
+            </summary>
+        </member>
         <member name="P:AppProject.Resources.Resource.NavMenu_Financial_Title">
             <summary>
               Looks up a localized string similar to Financial.
@@ -475,6 +525,16 @@
         <member name="P:AppProject.Resources.Resource.NotFound_Title">
             <summary>
               Looks up a localized string similar to Not found.
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Permission_Financial_ManageFinancialAccounts_Description">
+            <summary>
+              Looks up a localized string similar to Create, view, edit and delete financial accounts..
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Permission_Financial_ManageFinancialAccounts_Name">
+            <summary>
+              Looks up a localized string similar to Manage financial accounts.
             </summary>
         </member>
         <member name="P:AppProject.Resources.Resource.RadzenDataGrid_AndOperator_Text">

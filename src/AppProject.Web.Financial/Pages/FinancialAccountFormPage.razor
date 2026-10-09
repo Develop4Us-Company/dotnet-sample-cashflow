@@ -1,0 +1,72 @@
+@attribute [Authorize]
+
+@inherits ModelFormPage<FinancialAccount>
+
+<ModelFormControl TModel="FinancialAccount" Model=@this.Model OnSave=@this.OnSaveAsync OnCancel=@this.OnCancelAsync>
+    <FieldsetControl Title=@StringResource.GetStringByKey("Financial_FinancialAccountFormPage_GeneralFieldset_Title")>
+        <RadzenRow>
+            <RadzenColumn>
+                <RadzenText TextStyle="TextStyle.Subtitle2">@StringResource.GetStringByKey("Financial_FinancialAccountFormPage_GeneralFieldset_IdField_Text", this.Model.Id)</RadzenText>
+            </RadzenColumn>
+        </RadzenRow>
+        <RadzenRow>
+            <RadzenColumn>
+                <RadzenStack Orientation="Orientation.Horizontal" Gap="1rem" Wrap="FlexWrap.Wrap">
+
+                    <RadzenFormField Text=@StringResource.GetStringByKey("Financial_FinancialAccountFormPage_GeneralFieldset_NameField_Label")>
+                        <RadzenTextBox Name="NameField" @bind-Value=@this.Model.Name />
+                        <RadzenRequiredValidator Component="NameField" Text=@StringResource.GetStringByKey("Financial_FinancialAccountFormPage_GeneralFieldset_NameField_Required") />
+                        <RadzenLengthValidator Component="NameField" Max="100" Text=@StringResource.GetStringByKey("Financial_FinancialAccountFormPage_GeneralFieldset_NameField_InvalidLength") />
+                    </RadzenFormField>
+
+                </RadzenStack>
+            </RadzenColumn>
+        </RadzenRow>
+    </FieldsetControl>
+</ModelFormControl>
+
+@code {
+    [Parameter]
+    public Guid? Id { get; set; }
+
+    [Inject]
+    private IFinancialAccountClient FinancialAccountClient { get; set; } = default!;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await base.OnInitializedAsync();
+
+        if (this.Id.HasValue)
+        {
+            var entityResponse = await this.GetResultOrHandleExceptionAsync<EntityResponse<FinancialAccount>>(
+                () => this.FinancialAccountClient.GetAsync(new GetByIdRequest<Guid>{ Id = this.Id.Value }));
+
+            if (entityResponse is not null)
+            {
+                this.SetModel(entityResponse.Entity);
+            }
+        }
+    }
+
+    private async Task OnSaveAsync()
+    {
+        var keyResponse = await this.GetResultOrHandleExceptionAsync<KeyResponse<Guid>>(
+            async () =>
+            {
+                if (this.Model.Id.GetValueOrDefault() != Guid.Empty)
+                {
+                    return await this.FinancialAccountClient.PutAsync(new CreateOrUpdateRequest<FinancialAccount> { Entity = this.Model });
+                }
+
+                return await this.FinancialAccountClient.PostAsync(new CreateOrUpdateRequest<FinancialAccount> { Entity = this.Model });
+            });
+
+        if (keyResponse is not null)
+        {
+            this.Model.Id = keyResponse.Id;
+            await this.CloseDialogAsync(this.Model);
+        }
+    }
+
+    private Task OnCancelAsync() => this.CloseDialogAsync();
+}
