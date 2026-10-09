@@ -8,6 +8,7 @@
     <RadzenPanelMenuItem Text=@StringResource.GetStringByKey("Menu_Home_Item_Text") Icon="home" Path="/" />
     <AuthorizeView>
         <Authorized>
+            <RadzenPanelMenuItem Text=@StringResource.GetStringByKey("NavMenu_Financial_Title") Icon="account_balance" Path="/financial" />
 
             @if(permissions?.Contains(PermissionType.System_ManageSettings) == true)
             {

@@ -6,4 +6,7 @@
   <ItemGroup>
     <Folder Include="General\" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Financial\" />
+  </ItemGroup>
 </Project>

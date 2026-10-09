@@ -1,5 +1,6 @@
 using System;
 using AppProject.Core.Infrastructure.Database.Entities.Auth;
+using AppProject.Core.Infrastructure.Database.Entities.Financial;
 using AppProject.Core.Infrastructure.Database.Entities.General;
 using Microsoft.EntityFrameworkCore;
 
@@ -22,6 +23,14 @@ public class ApplicationDbContext : DbContext
     public DbSet<TbCity> Cities { get; set; } = default!;
 
     public DbSet<TbNeighborhood> Neighborhoods { get; set; } = default!;
+
+    public DbSet<TbFinancialAccount> FinancialAccounts { get; set; } = default!;
+
+    public DbSet<TbFinancialCategory> FinancialCategories { get; set; } = default!;
+
+    public DbSet<TbAccountPayable> AccountsPayable { get; set; } = default!;
+
+    public DbSet<TbAccountReceivable> AccountsReceivable { get; set; } = default!;
 
     protected override void OnModelCreating(ModelBuilder builder)
     {

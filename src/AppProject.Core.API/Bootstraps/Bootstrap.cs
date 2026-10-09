@@ -531,12 +531,14 @@ public static class Bootstrap
     private static IEnumerable<Assembly> GetControllerAssemblies() =>
         [
             Assembly.Load("AppProject.Core.Controllers.General"),
+            Assembly.Load("AppProject.Core.Controllers.Financial"),
         ];
 
     private static IEnumerable<Assembly> GetServiceAssemblies() =>
         [
             Assembly.Load("AppProject.Core.Services"),
-            Assembly.Load("AppProject.Core.Services.General")
+            Assembly.Load("AppProject.Core.Services.General"),
+            Assembly.Load("AppProject.Core.Services.Financial")
         ];
 
     private class ConnectionStringsOptions

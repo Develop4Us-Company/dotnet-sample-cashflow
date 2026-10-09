@@ -1,0 +1,6 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <ProjectReference Include="..\AppProject.Web.ApiClient\AppProject.Web.ApiClient.csproj" />
+    <ProjectReference Include="..\AppProject.Web.Models.Financial\AppProject.Web.Models.Financial.csproj" />
+  </ItemGroup>
+</Project>

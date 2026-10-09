@@ -257,6 +257,15 @@
     <value>Cities</value>
   </data>
 
+  <data name="NavMenu_Financial_Title" xml:space="preserve">
+    <value>Financial</value>
+  </data>
+
+  <!--Frontend Financial/HomePage-->
+  <data name="Financial_HomePage_Title" xml:space="preserve">
+    <value>Financial</value>
+  </data>
+
   <!--Frontend General/CountrySummaryPage-->
   <data name="General_CountrySummaryPage_Title" xml:space="preserve">
     <value>Countries</value>

@@ -1,0 +1,6 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <ProjectReference Include="..\AppProject.Core.Models.Financial\AppProject.Core.Models.Financial.csproj" />
+    <ProjectReference Include="..\AppProject.Core.Services\AppProject.Core.Services.csproj" />
+  </ItemGroup>
+</Project>

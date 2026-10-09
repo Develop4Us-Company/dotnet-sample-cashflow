@@ -20,4 +20,7 @@
     <Folder Include="General\Components\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Financial\Components\" />
+  </ItemGroup>
 </Project>

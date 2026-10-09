@@ -63,5 +63,15 @@
                 lazyAssemblies.AddRange(assemblies);
             }
         }
+
+        if (args.Path.StartsWith("financial", StringComparison.OrdinalIgnoreCase))
+        {
+            if (!lazyAssemblies.Any(a => a.GetName().Name == "AppProject.Web.Financial"))
+            {
+                var assemblies = await AssemblyLoader.LoadAssembliesAsync(
+                    new[] { "AppProject.Web.Financial.dll" });
+                lazyAssemblies.AddRange(assemblies);
+            }
+        }
     }
 }
