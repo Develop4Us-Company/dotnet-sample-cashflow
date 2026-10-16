@@ -1,0 +1,75 @@
+@using AppProject.Web.ApiClient.Financial
+@using AppProject.Web.Models.Financial
+
+@inherits AppProjectComponentBase
+
+@typeparam TValue
+
+<DropDownDataGridControl TValue="TValue" Name=@this.Name Data=@this.FinancialAccountSummaries LoadData=@this.LoadFinancialAccountsAsync
+    Value=@this.Value ValueChanged=@this.OnValueChangedAsync
+    TextProperty=@nameof(FinancialAccountSummary.Name) ValueProperty=@nameof(FinancialAccountSummary.Id)>
+    <Columns>
+        <RadzenDropDownDataGridColumn Property=@nameof(FinancialAccountSummary.Name) Title=@StringResource.GetStringByKey("Financial_FinancialAccountSummaryDropDownDataGridControl_NameColumn_Title") />
+    </Columns>
+</DropDownDataGridControl>
+
+@code {
+    [Parameter]
+    public string? Name { get; set; }
+
+    [Parameter]
+    public TValue? Value { get; set; }
+
+    [Parameter]
+    public EventCallback<TValue> ValueChanged { get; set; }
+
+    [Inject]
+    private IFinancialAccountSummaryClient FinancialAccountSummaryClient { get; set; } = default!;
+
+    private IEnumerable<FinancialAccountSummary> FinancialAccountSummaries { get; set; } = default!;
+
+    private async Task LoadFinancialAccountsAsync(LoadDataArgs args)
+    {
+        var summariesResponse = await this.GetResultOrHandleExceptionAsync<SummariesResponse<FinancialAccountSummary>>(
+            async () =>
+            {
+                var summariesResponse = await this.FinancialAccountSummaryClient.GetSummariesAsync(new SearchRequest() { SearchText = args.Filter, Take = 100 });
+
+                if (string.IsNullOrWhiteSpace(args.Filter)
+                    && this.Value is Guid selectedGuid
+                    && selectedGuid != Guid.Empty
+                    && summariesResponse?.Summaries.Any(x => x.Id == selectedGuid) == false)
+                {
+                    var selectedSummaryResponse = await this.FinancialAccountSummaryClient.GetSummaryAsync(new GetByIdRequest<Guid> { Id = selectedGuid });
+
+                    if (selectedSummaryResponse?.Summary != null)
+                    {
+                        return new SummariesResponse<FinancialAccountSummary>
+                        {
+                            Summaries = summariesResponse.Summaries.Concat([selectedSummaryResponse.Summary])
+                                .OrderBy(x => x.Name)
+                                .ToArray()
+                        };
+                    }
+                }
+
+                return summariesResponse!;
+            },
+            showBusyIndicator: false);
+
+        this.FinancialAccountSummaries = summariesResponse?.Summaries ?? Enumerable.Empty<FinancialAccountSummary>();
+    }
+
+    private async Task OnValueChangedAsync(TValue value)
+    {
+        if (!EqualityComparer<TValue>.Default.Equals(this.Value, value))
+        {
+            this.Value = value;
+
+            if (this.ValueChanged.HasDelegate)
+            {
+                await this.ValueChanged.InvokeAsync(value);
+            }
+        }
+    }
+}

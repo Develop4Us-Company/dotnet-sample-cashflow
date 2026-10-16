@@ -102,6 +102,511 @@
               Looks up a localized string similar to Unhandled exception..
             </summary>
         </member>
+        <member name="P:AppProject.Resources.Resource.Financial_AccountPayable_FinancialAccountNotFound">
+            <summary>
+              Looks up a localized string similar to The selected financial account does not exist..
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Financial_AccountPayable_FinancialAccountRequired">
+            <summary>
+              Looks up a localized string similar to Financial account is required when the entry is paid or received..
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Financial_AccountPayable_FinancialCategoryNotFound">
+            <summary>
+              Looks up a localized string similar to The selected financial category does not exist..
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Financial_AccountPayable_InvalidDueDateRange">
+            <summary>
+              Looks up a localized string similar to The initial due date must be earlier than or equal to the final due date..
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Financial_AccountPayable_PaymentDateRequired">
+            <summary>
+              Looks up a localized string similar to Payment date is required when the entry is paid..
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Financial_AccountPayableFormPage_GeneralFieldset_AmountField_Invalid">
+            <summary>
+              Looks up a localized string similar to Amount must be greater than zero..
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Financial_AccountPayableFormPage_GeneralFieldset_AmountField_Label">
+            <summary>
+              Looks up a localized string similar to Amount.
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Financial_AccountPayableFormPage_GeneralFieldset_DescriptionField_InvalidLength">
+            <summary>
+              Looks up a localized string similar to Max length: 200.
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Financial_AccountPayableFormPage_GeneralFieldset_DescriptionField_Label">
+            <summary>
+              Looks up a localized string similar to Description.
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Financial_AccountPayableFormPage_GeneralFieldset_DescriptionField_Required">
+            <summary>
+              Looks up a localized string similar to Description is required..
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Financial_AccountPayableFormPage_GeneralFieldset_DueDateField_Label">
+            <summary>
+              Looks up a localized string similar to Due date.
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Financial_AccountPayableFormPage_GeneralFieldset_DueDateField_Required">
+            <summary>
+              Looks up a localized string similar to Due date is required..
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Financial_AccountPayableFormPage_GeneralFieldset_FinancialAccountField_Label">
+            <summary>
+              Looks up a localized string similar to Financial account.
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Financial_AccountPayableFormPage_GeneralFieldset_FinancialAccountField_Required">
+            <summary>
+              Looks up a localized string similar to Financial account is required for paid entries..
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Financial_AccountPayableFormPage_GeneralFieldset_FinancialCategoryField_Label">
+            <summary>
+              Looks up a localized string similar to Financial category.
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Financial_AccountPayableFormPage_GeneralFieldset_FinancialCategoryField_Required">
+            <summary>
+              Looks up a localized string similar to Financial category is required..
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Financial_AccountPayableFormPage_GeneralFieldset_IdField_Text">
+            <summary>
+              Looks up a localized string similar to Id: {0}.
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Financial_AccountPayableFormPage_GeneralFieldset_IsPaidField_Label">
+            <summary>
+              Looks up a localized string similar to Paid.
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Financial_AccountPayableFormPage_GeneralFieldset_PaymentDateField_Label">
+            <summary>
+              Looks up a localized string similar to Payment date.
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Financial_AccountPayableFormPage_GeneralFieldset_PaymentDateField_Required">
+            <summary>
+              Looks up a localized string similar to Payment date is required for paid entries..
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Financial_AccountPayableFormPage_GeneralFieldset_Title">
+            <summary>
+              Looks up a localized string similar to General.
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Financial_AccountPayableFormPage_SettlementHint">
+            <summary>
+              Looks up a localized string similar to To record a payment, mark the entry as paid and enter the payment date and financial account..
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Financial_AccountPayableFormPage_Title">
+            <summary>
+              Looks up a localized string similar to Account payable.
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Financial_AccountPayableSummaryPage_AmountColumn_Title">
+            <summary>
+              Looks up a localized string similar to Amount.
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Financial_AccountPayableSummaryPage_DescriptionColumn_Title">
+            <summary>
+              Looks up a localized string similar to Description.
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Financial_AccountPayableSummaryPage_DueDateColumn_Title">
+            <summary>
+              Looks up a localized string similar to Due date.
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Financial_AccountPayableSummaryPage_FilterContent_DueDateFromField_Label">
+            <summary>
+              Looks up a localized string similar to Initial due date.
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Financial_AccountPayableSummaryPage_FilterContent_DueDateRange_Invalid">
+            <summary>
+              Looks up a localized string similar to The initial due date must be earlier than or equal to the final due date..
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Financial_AccountPayableSummaryPage_FilterContent_DueDateToField_Label">
+            <summary>
+              Looks up a localized string similar to Final due date.
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Financial_AccountPayableSummaryPage_FilterContent_FinancialAccountField_Label">
+            <summary>
+              Looks up a localized string similar to Financial account.
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Financial_AccountPayableSummaryPage_FilterContent_FinancialCategoryField_Label">
+            <summary>
+              Looks up a localized string similar to Category.
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Financial_AccountPayableSummaryPage_FilterContent_IsPaidField_Hint">
+            <summary>
+              Looks up a localized string similar to Checked: paid; unchecked: pending; indeterminate: all..
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Financial_AccountPayableSummaryPage_FilterContent_IsPaidField_Label">
+            <summary>
+              Looks up a localized string similar to Paid.
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Financial_AccountPayableSummaryPage_FinancialAccountNameColumn_Title">
+            <summary>
+              Looks up a localized string similar to Financial account.
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Financial_AccountPayableSummaryPage_FinancialCategoryNameColumn_Title">
+            <summary>
+              Looks up a localized string similar to Financial category.
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Financial_AccountPayableSummaryPage_IsPaidColumn_Title">
+            <summary>
+              Looks up a localized string similar to Paid.
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Financial_AccountPayableSummaryPage_PaymentDateColumn_Title">
+            <summary>
+              Looks up a localized string similar to Payment date.
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Financial_AccountPayableSummaryPage_Title">
+            <summary>
+              Looks up a localized string similar to Accounts payable.
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Financial_AccountReceivable_FinancialAccountNotFound">
+            <summary>
+              Looks up a localized string similar to The selected financial account does not exist..
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Financial_AccountReceivable_FinancialAccountRequired">
+            <summary>
+              Looks up a localized string similar to Financial account is required when the entry is paid or received..
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Financial_AccountReceivable_FinancialCategoryNotFound">
+            <summary>
+              Looks up a localized string similar to The selected financial category does not exist..
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Financial_AccountReceivable_InvalidDueDateRange">
+            <summary>
+              Looks up a localized string similar to The initial due date must be earlier than or equal to the final due date..
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Financial_AccountReceivable_ReceiptDateRequired">
+            <summary>
+              Looks up a localized string similar to Receipt date is required when the entry is received..
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Financial_AccountReceivableFormPage_GeneralFieldset_AmountField_Invalid">
+            <summary>
+              Looks up a localized string similar to Amount must be greater than zero..
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Financial_AccountReceivableFormPage_GeneralFieldset_AmountField_Label">
+            <summary>
+              Looks up a localized string similar to Amount.
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Financial_AccountReceivableFormPage_GeneralFieldset_DescriptionField_InvalidLength">
+            <summary>
+              Looks up a localized string similar to Max length: 200.
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Financial_AccountReceivableFormPage_GeneralFieldset_DescriptionField_Label">
+            <summary>
+              Looks up a localized string similar to Description.
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Financial_AccountReceivableFormPage_GeneralFieldset_DescriptionField_Required">
+            <summary>
+              Looks up a localized string similar to Description is required..
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Financial_AccountReceivableFormPage_GeneralFieldset_DueDateField_Label">
+            <summary>
+              Looks up a localized string similar to Due date.
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Financial_AccountReceivableFormPage_GeneralFieldset_DueDateField_Required">
+            <summary>
+              Looks up a localized string similar to Due date is required..
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Financial_AccountReceivableFormPage_GeneralFieldset_FinancialAccountField_Label">
+            <summary>
+              Looks up a localized string similar to Financial account.
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Financial_AccountReceivableFormPage_GeneralFieldset_FinancialAccountField_Required">
+            <summary>
+              Looks up a localized string similar to Financial account is required for received entries..
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Financial_AccountReceivableFormPage_GeneralFieldset_FinancialCategoryField_Label">
+            <summary>
+              Looks up a localized string similar to Financial category.
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Financial_AccountReceivableFormPage_GeneralFieldset_FinancialCategoryField_Required">
+            <summary>
+              Looks up a localized string similar to Financial category is required..
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Financial_AccountReceivableFormPage_GeneralFieldset_IdField_Text">
+            <summary>
+              Looks up a localized string similar to Id: {0}.
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Financial_AccountReceivableFormPage_GeneralFieldset_IsReceivedField_Label">
+            <summary>
+              Looks up a localized string similar to Received.
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Financial_AccountReceivableFormPage_GeneralFieldset_ReceiptDateField_Label">
+            <summary>
+              Looks up a localized string similar to Receipt date.
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Financial_AccountReceivableFormPage_GeneralFieldset_ReceiptDateField_Required">
+            <summary>
+              Looks up a localized string similar to Receipt date is required for received entries..
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Financial_AccountReceivableFormPage_GeneralFieldset_Title">
+            <summary>
+              Looks up a localized string similar to General.
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Financial_AccountReceivableFormPage_SettlementHint">
+            <summary>
+              Looks up a localized string similar to To record a receipt, mark the entry as received and enter the receipt date and financial account..
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Financial_AccountReceivableFormPage_Title">
+            <summary>
+              Looks up a localized string similar to Account receivable.
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Financial_AccountReceivableSummaryPage_AmountColumn_Title">
+            <summary>
+              Looks up a localized string similar to Amount.
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Financial_AccountReceivableSummaryPage_DescriptionColumn_Title">
+            <summary>
+              Looks up a localized string similar to Description.
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Financial_AccountReceivableSummaryPage_DueDateColumn_Title">
+            <summary>
+              Looks up a localized string similar to Due date.
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Financial_AccountReceivableSummaryPage_FilterContent_DueDateFromField_Label">
+            <summary>
+              Looks up a localized string similar to Initial due date.
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Financial_AccountReceivableSummaryPage_FilterContent_DueDateRange_Invalid">
+            <summary>
+              Looks up a localized string similar to The initial due date must be earlier than or equal to the final due date..
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Financial_AccountReceivableSummaryPage_FilterContent_DueDateToField_Label">
+            <summary>
+              Looks up a localized string similar to Final due date.
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Financial_AccountReceivableSummaryPage_FilterContent_FinancialAccountField_Label">
+            <summary>
+              Looks up a localized string similar to Financial account.
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Financial_AccountReceivableSummaryPage_FilterContent_FinancialCategoryField_Label">
+            <summary>
+              Looks up a localized string similar to Category.
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Financial_AccountReceivableSummaryPage_FilterContent_IsReceivedField_Hint">
+            <summary>
+              Looks up a localized string similar to Checked: received; unchecked: pending; indeterminate: all..
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Financial_AccountReceivableSummaryPage_FilterContent_IsReceivedField_Label">
+            <summary>
+              Looks up a localized string similar to Received.
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Financial_AccountReceivableSummaryPage_FinancialAccountNameColumn_Title">
+            <summary>
+              Looks up a localized string similar to Financial account.
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Financial_AccountReceivableSummaryPage_FinancialCategoryNameColumn_Title">
+            <summary>
+              Looks up a localized string similar to Financial category.
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Financial_AccountReceivableSummaryPage_IsReceivedColumn_Title">
+            <summary>
+              Looks up a localized string similar to Received.
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Financial_AccountReceivableSummaryPage_ReceiptDateColumn_Title">
+            <summary>
+              Looks up a localized string similar to Receipt date.
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Financial_AccountReceivableSummaryPage_Title">
+            <summary>
+              Looks up a localized string similar to Accounts receivable.
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Financial_FinancialAccount_DuplicateName">
+            <summary>
+              Looks up a localized string similar to This financial account name already exists..
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Financial_FinancialAccount_InUse">
+            <summary>
+              Looks up a localized string similar to This financial account is linked to accounts payable or receivable and cannot be deleted..
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Financial_FinancialAccountBalanceSummaryPage_BalanceColumn_Title">
+            <summary>
+              Looks up a localized string similar to Balance.
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Financial_FinancialAccountBalanceSummaryPage_NameColumn_Title">
+            <summary>
+              Looks up a localized string similar to Financial account.
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Financial_FinancialAccountBalanceSummaryPage_Title">
+            <summary>
+              Looks up a localized string similar to Account balances.
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Financial_FinancialAccountFormPage_GeneralFieldset_IdField_Text">
+            <summary>
+              Looks up a localized string similar to Id: {0}.
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Financial_FinancialAccountFormPage_GeneralFieldset_NameField_InvalidLength">
+            <summary>
+              Looks up a localized string similar to Max length: 100.
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Financial_FinancialAccountFormPage_GeneralFieldset_NameField_Label">
+            <summary>
+              Looks up a localized string similar to Name.
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Financial_FinancialAccountFormPage_GeneralFieldset_NameField_Required">
+            <summary>
+              Looks up a localized string similar to Name is required.
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Financial_FinancialAccountFormPage_GeneralFieldset_Title">
+            <summary>
+              Looks up a localized string similar to General.
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Financial_FinancialAccountFormPage_Title">
+            <summary>
+              Looks up a localized string similar to Financial account.
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Financial_FinancialAccountSummaryDropDownDataGridControl_NameColumn_Title">
+            <summary>
+              Looks up a localized string similar to Name.
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Financial_FinancialAccountSummaryPage_NameColumn_Title">
+            <summary>
+              Looks up a localized string similar to Name.
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Financial_FinancialAccountSummaryPage_Title">
+            <summary>
+              Looks up a localized string similar to Financial accounts.
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Financial_FinancialCategory_DuplicateName">
+            <summary>
+              Looks up a localized string similar to This financial category name already exists..
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Financial_FinancialCategory_InUse">
+            <summary>
+              Looks up a localized string similar to This financial category is linked to accounts payable or receivable and cannot be deleted..
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Financial_FinancialCategoryFormPage_GeneralFieldset_IdField_Text">
+            <summary>
+              Looks up a localized string similar to Id: {0}.
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Financial_FinancialCategoryFormPage_GeneralFieldset_NameField_InvalidLength">
+            <summary>
+              Looks up a localized string similar to Max length: 100.
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Financial_FinancialCategoryFormPage_GeneralFieldset_NameField_Label">
+            <summary>
+              Looks up a localized string similar to Name.
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Financial_FinancialCategoryFormPage_GeneralFieldset_NameField_Required">
+            <summary>
+              Looks up a localized string similar to Name is required.
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Financial_FinancialCategoryFormPage_GeneralFieldset_Title">
+            <summary>
+              Looks up a localized string similar to General.
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Financial_FinancialCategoryFormPage_Title">
+            <summary>
+              Looks up a localized string similar to Financial category.
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Financial_FinancialCategorySummaryDropDownDataGridControl_NameColumn_Title">
+            <summary>
+              Looks up a localized string similar to Name.
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Financial_FinancialCategorySummaryPage_NameColumn_Title">
+            <summary>
+              Looks up a localized string similar to Name.
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Financial_FinancialCategorySummaryPage_Title">
+            <summary>
+              Looks up a localized string similar to Financial categories.
+            </summary>
+        </member>
         <member name="P:AppProject.Resources.Resource.Footer_Text">
             <summary>
               Looks up a localized string similar to Copyright © Your Company Name. All rights reserved..
@@ -445,6 +950,36 @@
         <member name="P:AppProject.Resources.Resource.ModelFormControl_SaveButton_Text">
             <summary>
               Looks up a localized string similar to Save.
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.NavMenu_Financial_AccountPayable_Text">
+            <summary>
+              Looks up a localized string similar to Accounts payable.
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.NavMenu_Financial_AccountReceivable_Text">
+            <summary>
+              Looks up a localized string similar to Accounts receivable.
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.NavMenu_Financial_FinancialAccount_Text">
+            <summary>
+              Looks up a localized string similar to Financial accounts.
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.NavMenu_Financial_FinancialAccountBalance_Text">
+            <summary>
+              Looks up a localized string similar to Account balances.
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.NavMenu_Financial_FinancialCategory_Text">
+            <summary>
+              Looks up a localized string similar to Financial categories.
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.NavMenu_Financial_Title">
+            <summary>
+              Looks up a localized string similar to Financial.
             </summary>
         </member>
         <member name="P:AppProject.Resources.Resource.NotAuthorized_Message">

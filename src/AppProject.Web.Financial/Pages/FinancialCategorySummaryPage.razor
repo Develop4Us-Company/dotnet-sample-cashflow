@@ -1,0 +1,70 @@
+@page "/financial/financialcategories"
+
+@attribute [Authorize]
+
+@inherits SearchPage<SearchRequest, FinancialCategorySummary>
+
+<SearchControl TRequest="SearchRequest" Request=@this.Request
+    Title=@StringResource.GetStringByKey("Financial_FinancialCategorySummaryPage_Title") @bind-Take=@this.Request.Take
+    @bind-SearchText=@this.Request.SearchText DisplayTakeInfo=@this.DisplayTakeInfo
+    OnExecuteSearch=@this.ExecuteSearchAsync>
+    <DataGridControl TItem="FinancialCategorySummary" Items=@this.Items @bind-SelectedItems=@this.SelectedItems
+        OnNewItem=@this.OnNewItemAsync OnEditItem=@this.OnEditItemAsync OnDeleteItem=@OnDeleteItemAsync>
+
+        <RadzenDataGridColumn TItem="FinancialCategorySummary"
+            Title=@StringResource.GetStringByKey("Financial_FinancialCategorySummaryPage_NameColumn_Title")
+            Property=@nameof(FinancialCategorySummary.Name) />
+
+    </DataGridControl>
+</SearchControl>
+
+@code {
+    [Inject]
+    private IFinancialCategorySummaryClient FinancialCategorySummaryClient { get; set; } = default!;
+
+    [Inject]
+    private IFinancialCategoryClient FinancialCategoryClient { get; set; } = default!;
+
+    protected override async Task<IEnumerable<FinancialCategorySummary>> FetchDataAsync()
+    {
+        var summariesResponse = await this.GetResultOrHandleExceptionAsync<SummariesResponse<FinancialCategorySummary>>(
+            () => this.FinancialCategorySummaryClient.GetSummariesAsync(this.Request));
+
+        return summariesResponse?.Summaries ?? Enumerable.Empty<FinancialCategorySummary>();
+    }
+
+    private async Task OnNewItemAsync()
+    {
+        await this.OpenDialogAsync<FinancialCategoryFormPage, FinancialCategory>(
+            title: StringResource.GetStringByKey("Financial_FinancialCategoryFormPage_Title"));
+        await this.ExecuteSearchAsync();
+    }
+
+    private async Task OnEditItemAsync()
+    {
+        var selectedId = this.SelectedItems.FirstOrDefault()?.Id;
+
+        if (selectedId.HasValue)
+        {
+            await this.OpenDialogAsync<FinancialCategoryFormPage, FinancialCategory>(
+                title: StringResource.GetStringByKey("Financial_FinancialCategoryFormPage_Title"),
+                parameters: new Dictionary<string, object>() { { "Id", selectedId } });
+            await this.ExecuteSearchAsync();
+        }
+    }
+
+    private async Task OnDeleteItemAsync()
+    {
+        var selectedIds = this.SelectedItems.Select(x => x.Id);
+
+        if (selectedIds.Any() && await this.ConfirmAsync(StringResource.GetStringByKey("Dialog_Confirm_Delete_Message")))
+        {
+            foreach (var selectedId in selectedIds)
+            {
+                await this.HandleExceptionAsync(() => this.FinancialCategoryClient.DeleteAsync(new DeleteRequest<Guid> { Id = selectedId }));
+            }
+
+            await this.ExecuteSearchAsync();
+        }
+    }
+}

@@ -1,0 +1,33 @@
+@page "/financial/financialaccountbalances"
+
+@attribute [Authorize]
+
+@inherits SearchPage<SearchRequest, FinancialAccountBalanceSummary>
+
+<SearchControl TRequest="SearchRequest" Request=@this.Request
+    Title=@StringResource.GetStringByKey("Financial_FinancialAccountBalanceSummaryPage_Title") @bind-Take=@this.Request.Take
+    @bind-SearchText=@this.Request.SearchText DisplayTakeInfo=@this.DisplayTakeInfo
+    OnExecuteSearch=@this.ExecuteSearchAsync>
+    <DataGridControl TItem="FinancialAccountBalanceSummary" Items=@this.Items @bind-SelectedItems=@this.SelectedItems
+        ShowNewAction="false" ShowEditAction="false" ShowDeleteAction="false">
+        <RadzenDataGridColumn TItem="FinancialAccountBalanceSummary"
+            Title=@StringResource.GetStringByKey("Financial_FinancialAccountBalanceSummaryPage_NameColumn_Title")
+            Property=@nameof(FinancialAccountBalanceSummary.Name) />
+        <RadzenDataGridColumn TItem="FinancialAccountBalanceSummary"
+            Title=@StringResource.GetStringByKey("Financial_FinancialAccountBalanceSummaryPage_BalanceColumn_Title")
+            Property=@nameof(FinancialAccountBalanceSummary.Balance) FormatString="{0:N2}" />
+    </DataGridControl>
+</SearchControl>
+
+@code {
+    [Inject]
+    private IFinancialAccountBalanceSummaryClient FinancialAccountBalanceSummaryClient { get; set; } = default!;
+
+    protected override async Task<IEnumerable<FinancialAccountBalanceSummary>> FetchDataAsync()
+    {
+        var response = await this.GetResultOrHandleExceptionAsync<SummariesResponse<FinancialAccountBalanceSummary>>(
+            () => this.FinancialAccountBalanceSummaryClient.GetSummariesAsync(this.Request));
+
+        return response?.Summaries ?? Enumerable.Empty<FinancialAccountBalanceSummary>();
+    }
+}

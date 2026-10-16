@@ -97,11 +97,14 @@ public static class WebBootstrap
 
         var baseUri = new Uri(baseUrl);
         var authorizedUrls = new[] { baseUrl };
+        var urlParameterFormatter = new DefaultUrlParameterFormatter();
+        urlParameterFormatter.AddFormat<DateTimeOffset>("O");
+        var refitSettings = new RefitSettings { UrlParameterFormatter = urlParameterFormatter };
 
         foreach (var refitInterface in refitInterfaces)
         {
             builder.Services
-                .AddRefitClient(refitInterface)
+                .AddRefitClient(refitInterface, refitSettings)
                 .ConfigureHttpClient(c =>
                 {
                     c.BaseAddress = baseUri;
@@ -129,6 +132,7 @@ public static class WebBootstrap
         [
             Assembly.Load("AppProject.Web.ApiClient"),
             Assembly.Load("AppProject.Web.ApiClient.General"),
+            Assembly.Load("AppProject.Web.ApiClient.Financial"),
         ];
 
     private class ApiOptions
