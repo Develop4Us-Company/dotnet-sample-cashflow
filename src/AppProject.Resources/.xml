@@ -252,6 +252,11 @@
               Looks up a localized string similar to Financial account.
             </summary>
         </member>
+        <member name="P:AppProject.Resources.Resource.Financial_AccountPayableSummaryPage_FilterContent_FinancialCategoryField_Label">
+            <summary>
+              Looks up a localized string similar to Category.
+            </summary>
+        </member>
         <member name="P:AppProject.Resources.Resource.Financial_AccountPayableSummaryPage_FilterContent_IsPaidField_Hint">
             <summary>
               Looks up a localized string similar to Checked: paid; unchecked: pending; indeterminate: all..
@@ -435,6 +440,11 @@
         <member name="P:AppProject.Resources.Resource.Financial_AccountReceivableSummaryPage_FilterContent_FinancialAccountField_Label">
             <summary>
               Looks up a localized string similar to Financial account.
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Financial_AccountReceivableSummaryPage_FilterContent_FinancialCategoryField_Label">
+            <summary>
+              Looks up a localized string similar to Category.
             </summary>
         </member>
         <member name="P:AppProject.Resources.Resource.Financial_AccountReceivableSummaryPage_FilterContent_IsReceivedField_Hint">

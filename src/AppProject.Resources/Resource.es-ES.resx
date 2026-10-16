@@ -379,6 +379,9 @@
   <data name="Financial_AccountPayableSummaryPage_Title" xml:space="preserve">
     <value>Cuentas por pagar</value>
   </data>
+  <data name="Financial_AccountPayableSummaryPage_FilterContent_FinancialCategoryField_Label" xml:space="preserve">
+    <value>Categoría</value>
+  </data>
   <data name="Financial_AccountPayableSummaryPage_FilterContent_DueDateFromField_Label" xml:space="preserve">
     <value>Vencimiento inicial</value>
   </data>
@@ -478,6 +481,9 @@
   <!--Frontend Financial/AccountReceivableSummaryPage-->
   <data name="Financial_AccountReceivableSummaryPage_Title" xml:space="preserve">
     <value>Cuentas por cobrar</value>
+  </data>
+  <data name="Financial_AccountReceivableSummaryPage_FilterContent_FinancialCategoryField_Label" xml:space="preserve">
+    <value>Categoría</value>
   </data>
   <data name="Financial_AccountReceivableSummaryPage_FilterContent_DueDateFromField_Label" xml:space="preserve">
     <value>Vencimiento inicial</value>

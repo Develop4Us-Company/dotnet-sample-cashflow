@@ -9,27 +9,34 @@
     @bind-SearchText=@this.Request.SearchText DisplayTakeInfo=@this.DisplayTakeInfo
     OnExecuteSearch=@this.ExecuteSearchAsync>
     <FilterContent>
-        <RadzenFormField Text=@StringResource.GetStringByKey("Financial_AccountReceivableSummaryPage_FilterContent_DueDateFromField_Label")>
-            <RadzenDatePicker TValue="DateTimeOffset?" Name="DueDateFromField" @bind-Value=@this.Request.DueDateFrom
-                DateFormat=@CultureInfo.CurrentCulture.DateTimeFormat.ShortDatePattern AllowClear="true" />
+        <RadzenFormField Text=@StringResource.GetStringByKey("Financial_AccountReceivableSummaryPage_FilterContent_FinancialCategoryField_Label")>
+            <FinancialCategorySummaryDropDownDataGridControl TValue="Guid?" @bind-Value=@this.Request.FinancialCategoryId />
         </RadzenFormField>
-        <RadzenFormField Text=@StringResource.GetStringByKey("Financial_AccountReceivableSummaryPage_FilterContent_DueDateToField_Label")>
-            <RadzenDatePicker TValue="DateTimeOffset?" Name="DueDateToField" @bind-Value=@this.Request.DueDateTo
-                DateFormat=@CultureInfo.CurrentCulture.DateTimeFormat.ShortDatePattern AllowClear="true" />
-            <RadzenCustomValidator Component="DueDateToField"
-                Validator=@(() => !this.Request.DueDateFrom.HasValue || !this.Request.DueDateTo.HasValue || this.Request.DueDateFrom.Value.Date <= this.Request.DueDateTo.Value.Date)
-                Text=@StringResource.GetStringByKey("Financial_AccountReceivableSummaryPage_FilterContent_DueDateRange_Invalid") />
-        </RadzenFormField>
-        <RadzenStack Gap="0.25rem">
-            <RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center">
-                <RadzenCheckBox TValue="bool?" Name="IsReceivedFilter" TriState="true" @bind-Value=@this.Request.IsReceived />
-                <RadzenLabel Component="IsReceivedFilter" Text=@StringResource.GetStringByKey("Financial_AccountReceivableSummaryPage_FilterContent_IsReceivedField_Label") />
-            </RadzenStack>
-            <RadzenText TextStyle="TextStyle.Caption" Text=@StringResource.GetStringByKey("Financial_AccountReceivableSummaryPage_FilterContent_IsReceivedField_Hint") />
+        <RadzenStack Orientation="Orientation.Horizontal" Gap="1rem" Wrap="FlexWrap.Wrap" Style="flex-basis: 100%;">
+            <RadzenFormField Text=@StringResource.GetStringByKey("Financial_AccountReceivableSummaryPage_FilterContent_DueDateFromField_Label")>
+                <RadzenDatePicker TValue="DateTimeOffset?" Name="DueDateFromField" @bind-Value=@this.Request.DueDateFrom
+                    DateFormat=@CultureInfo.CurrentCulture.DateTimeFormat.ShortDatePattern AllowClear="true" />
+            </RadzenFormField>
+            <RadzenFormField Text=@StringResource.GetStringByKey("Financial_AccountReceivableSummaryPage_FilterContent_DueDateToField_Label")>
+                <RadzenDatePicker TValue="DateTimeOffset?" Name="DueDateToField" @bind-Value=@this.Request.DueDateTo
+                    DateFormat=@CultureInfo.CurrentCulture.DateTimeFormat.ShortDatePattern AllowClear="true" />
+                <RadzenCustomValidator Component="DueDateToField"
+                    Validator=@(() => !this.Request.DueDateFrom.HasValue || !this.Request.DueDateTo.HasValue || this.Request.DueDateFrom.Value.Date <= this.Request.DueDateTo.Value.Date)
+                    Text=@StringResource.GetStringByKey("Financial_AccountReceivableSummaryPage_FilterContent_DueDateRange_Invalid") />
+            </RadzenFormField>
         </RadzenStack>
-        <RadzenFormField Text=@StringResource.GetStringByKey("Financial_AccountReceivableSummaryPage_FilterContent_FinancialAccountField_Label")>
-            <FinancialAccountSummaryDropDownDataGridControl TValue="Guid?" @bind-Value=@this.Request.FinancialAccountId />
-        </RadzenFormField>
+        <RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center" Gap="1rem" Wrap="FlexWrap.Wrap" Style="flex-basis: 100%;">
+            <RadzenStack Gap="0.25rem">
+                <RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center">
+                    <RadzenCheckBox TValue="bool?" Name="IsReceivedFilter" TriState="true" @bind-Value=@this.Request.IsReceived />
+                    <RadzenLabel Component="IsReceivedFilter" Text=@StringResource.GetStringByKey("Financial_AccountReceivableSummaryPage_FilterContent_IsReceivedField_Label") />
+                </RadzenStack>
+                <RadzenText TextStyle="TextStyle.Caption" Text=@StringResource.GetStringByKey("Financial_AccountReceivableSummaryPage_FilterContent_IsReceivedField_Hint") />
+            </RadzenStack>
+            <RadzenFormField Text=@StringResource.GetStringByKey("Financial_AccountReceivableSummaryPage_FilterContent_FinancialAccountField_Label")>
+                <FinancialAccountSummaryDropDownDataGridControl TValue="Guid?" @bind-Value=@this.Request.FinancialAccountId />
+            </RadzenFormField>
+        </RadzenStack>
     </FilterContent>
     <ChildContent>
         <DataGridControl TItem="AccountReceivableSummary" Items=@this.Items @bind-SelectedItems=@this.SelectedItems
@@ -76,6 +83,7 @@
         {
             SearchText = this.Request.SearchText,
             Take = this.Request.Take,
+            FinancialCategoryId = this.Request.FinancialCategoryId,
             DueDateFrom = this.Request.DueDateFrom is { } from
                 ? new DateTimeOffset(from.Date, from.Offset)
                 : null,

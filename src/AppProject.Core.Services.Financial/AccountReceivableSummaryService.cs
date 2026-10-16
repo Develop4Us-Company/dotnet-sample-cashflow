@@ -32,6 +32,11 @@ public class AccountReceivableSummaryService(
                     query = query.Where(x => x.Description.Contains(searchText));
                 }
 
+                if (request.FinancialCategoryId.HasValue)
+                {
+                    query = query.Where(x => x.FinancialCategoryId == request.FinancialCategoryId.Value);
+                }
+
                 if (request.DueDateFrom.HasValue)
                 {
                     query = query.Where(x => x.DueDate >= request.DueDateFrom.Value);

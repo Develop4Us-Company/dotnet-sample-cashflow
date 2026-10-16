@@ -35,6 +35,11 @@ public class AccountPayableSummaryServiceTests
             this.CreateEntity("Unrelated", 3, false, this.financialAccountId),
             this.CreateEntity("Invoice E", -1, false, this.financialAccountId)
         };
+        foreach (var entity in this.dataset)
+        {
+            entity.FinancialCategoryId = entity.FinancialCategory.Id;
+        }
+
         this.databaseRepositoryMock = new Mock<IDatabaseRepository>();
         this.permissionServiceMock = new Mock<IPermissionService>();
         this.permissionServiceMock
@@ -134,6 +139,7 @@ public class AccountPayableSummaryServiceTests
         var response = await this.service.GetSummariesAsync(new AccountPayableSummarySearchRequest
         {
             SearchText = "Invoice",
+            FinancialCategoryId = this.dataset[0].FinancialCategoryId,
             DueDateFrom = this.dueDate,
             DueDateTo = this.dueDate.AddDays(2),
             IsPaid = true,
@@ -141,6 +147,31 @@ public class AccountPayableSummaryServiceTests
         });
 
         response.Summaries.Select(x => x.Id).ShouldBe(new[] { this.dataset[0].Id });
+    }
+
+    [Test]
+    public async Task GetSummaries_WithCategoryFilter_ExcludesOtherCategoriesAsync()
+    {
+        this.dataset[2].FinancialCategory = this.dataset[0].FinancialCategory;
+        this.dataset[2].FinancialCategoryId = this.dataset[0].FinancialCategoryId;
+
+        var response = await this.service.GetSummariesAsync(new AccountPayableSummarySearchRequest
+        {
+            FinancialCategoryId = this.dataset[0].FinancialCategoryId
+        });
+
+        response.Summaries.Select(x => x.Description).ShouldBe(new[] { "Invoice A", "Invoice C" });
+    }
+
+    [Test]
+    public async Task GetSummaries_WithUnmatchedCategory_ReturnsEmptyCollectionAsync()
+    {
+        var response = await this.service.GetSummariesAsync(new AccountPayableSummarySearchRequest
+        {
+            FinancialCategoryId = Guid.NewGuid()
+        });
+
+        response.Summaries.ShouldBeEmpty();
     }
 
     [Test]
