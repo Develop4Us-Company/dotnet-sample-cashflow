@@ -4,5 +4,80 @@
         <name>AppProject.Web.ApiClient.Financial</name>
     </assembly>
     <members>
+        <member name="T:Refit.Implementation.Generated">
+            <inheritdoc />
+        </member>
+        <member name="T:Refit.Implementation.Generated.AppProjectWebApiClientFinancialIFinancialAccountClient">
+            <inheritdoc />
+        </member>
+        <member name="P:Refit.Implementation.Generated.AppProjectWebApiClientFinancialIFinancialAccountClient.Client">
+            <inheritdoc />
+        </member>
+        <member name="M:Refit.Implementation.Generated.AppProjectWebApiClientFinancialIFinancialAccountClient.#ctor(System.Net.Http.HttpClient,Refit.IRequestBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:Refit.Implementation.Generated.AppProjectWebApiClientFinancialIFinancialAccountClient.GetAsync(AppProject.Models.GetByIdRequest{System.Guid},System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:Refit.Implementation.Generated.AppProjectWebApiClientFinancialIFinancialAccountClient.PostAsync(AppProject.Models.CreateOrUpdateRequest{AppProject.Web.Models.Financial.FinancialAccount},System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:Refit.Implementation.Generated.AppProjectWebApiClientFinancialIFinancialAccountClient.PutAsync(AppProject.Models.CreateOrUpdateRequest{AppProject.Web.Models.Financial.FinancialAccount},System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:Refit.Implementation.Generated.AppProjectWebApiClientFinancialIFinancialAccountClient.DeleteAsync(AppProject.Models.DeleteRequest{System.Guid},System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="T:Refit.Implementation.Generated.AppProjectWebApiClientFinancialIFinancialAccountSummaryClient">
+            <inheritdoc />
+        </member>
+        <member name="P:Refit.Implementation.Generated.AppProjectWebApiClientFinancialIFinancialAccountSummaryClient.Client">
+            <inheritdoc />
+        </member>
+        <member name="M:Refit.Implementation.Generated.AppProjectWebApiClientFinancialIFinancialAccountSummaryClient.#ctor(System.Net.Http.HttpClient,Refit.IRequestBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:Refit.Implementation.Generated.AppProjectWebApiClientFinancialIFinancialAccountSummaryClient.GetSummariesAsync(AppProject.Models.SearchRequest,System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:Refit.Implementation.Generated.AppProjectWebApiClientFinancialIFinancialAccountSummaryClient.GetSummaryAsync(AppProject.Models.GetByIdRequest{System.Guid},System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="T:Refit.Implementation.Generated.AppProjectWebApiClientFinancialIFinancialCategoryClient">
+            <inheritdoc />
+        </member>
+        <member name="P:Refit.Implementation.Generated.AppProjectWebApiClientFinancialIFinancialCategoryClient.Client">
+            <inheritdoc />
+        </member>
+        <member name="M:Refit.Implementation.Generated.AppProjectWebApiClientFinancialIFinancialCategoryClient.#ctor(System.Net.Http.HttpClient,Refit.IRequestBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:Refit.Implementation.Generated.AppProjectWebApiClientFinancialIFinancialCategoryClient.GetAsync(AppProject.Models.GetByIdRequest{System.Guid},System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:Refit.Implementation.Generated.AppProjectWebApiClientFinancialIFinancialCategoryClient.PostAsync(AppProject.Models.CreateOrUpdateRequest{AppProject.Web.Models.Financial.FinancialCategory},System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:Refit.Implementation.Generated.AppProjectWebApiClientFinancialIFinancialCategoryClient.PutAsync(AppProject.Models.CreateOrUpdateRequest{AppProject.Web.Models.Financial.FinancialCategory},System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:Refit.Implementation.Generated.AppProjectWebApiClientFinancialIFinancialCategoryClient.DeleteAsync(AppProject.Models.DeleteRequest{System.Guid},System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="T:Refit.Implementation.Generated.AppProjectWebApiClientFinancialIFinancialCategorySummaryClient">
+            <inheritdoc />
+        </member>
+        <member name="P:Refit.Implementation.Generated.AppProjectWebApiClientFinancialIFinancialCategorySummaryClient.Client">
+            <inheritdoc />
+        </member>
+        <member name="M:Refit.Implementation.Generated.AppProjectWebApiClientFinancialIFinancialCategorySummaryClient.#ctor(System.Net.Http.HttpClient,Refit.IRequestBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:Refit.Implementation.Generated.AppProjectWebApiClientFinancialIFinancialCategorySummaryClient.GetSummariesAsync(AppProject.Models.SearchRequest,System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:Refit.Implementation.Generated.AppProjectWebApiClientFinancialIFinancialCategorySummaryClient.GetSummaryAsync(AppProject.Models.GetByIdRequest{System.Guid},System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
     </members>
 </doc>

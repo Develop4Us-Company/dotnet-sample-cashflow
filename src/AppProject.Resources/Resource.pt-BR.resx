@@ -51,12 +51,11 @@
     <value>Esta conta financeira está vinculada a contas a pagar ou receber e não pode ser excluída.</value>
   </data>
 
-  <!--Financial Permissions-->
-  <data name="Permission_Financial_ManageFinancialAccounts_Name" xml:space="preserve">
-    <value>Gerenciar contas financeiras</value>
+  <data name="Financial_FinancialCategory_DuplicateName" xml:space="preserve">
+    <value>Já existe uma categoria financeira com esse nome.</value>
   </data>
-  <data name="Permission_Financial_ManageFinancialAccounts_Description" xml:space="preserve">
-    <value>Criar, consultar, editar e excluir contas financeiras.</value>
+  <data name="Financial_FinancialCategory_InUse" xml:space="preserve">
+    <value>Esta categoria financeira está vinculada a contas a pagar ou receber e não pode ser excluída.</value>
   </data>
 
   <!--Frontend-->
@@ -275,6 +274,9 @@
   <data name="NavMenu_Financial_FinancialAccount_Text" xml:space="preserve">
     <value>Contas financeiras</value>
   </data>
+  <data name="NavMenu_Financial_FinancialCategory_Text" xml:space="preserve">
+    <value>Categorias financeiras</value>
+  </data>
   <data name="NavMenu_Financial_Title" xml:space="preserve">
     <value>Financeiro</value>
   </data>
@@ -304,6 +306,34 @@
     <value>Nome é obrigatório</value>
   </data>
   <data name="Financial_FinancialAccountFormPage_GeneralFieldset_NameField_InvalidLength" xml:space="preserve">
+    <value>Tamanho máximo: 100</value>
+  </data>
+
+  <!--Frontend Financial/FinancialCategorySummaryPage-->
+  <data name="Financial_FinancialCategorySummaryPage_Title" xml:space="preserve">
+    <value>Categorias financeiras</value>
+  </data>
+  <data name="Financial_FinancialCategorySummaryPage_NameColumn_Title" xml:space="preserve">
+    <value>Nome</value>
+  </data>
+
+  <!--Frontend Financial/FinancialCategoryFormPage-->
+  <data name="Financial_FinancialCategoryFormPage_Title" xml:space="preserve">
+    <value>Categoria financeira</value>
+  </data>
+  <data name="Financial_FinancialCategoryFormPage_GeneralFieldset_Title" xml:space="preserve">
+    <value>Geral</value>
+  </data>
+  <data name="Financial_FinancialCategoryFormPage_GeneralFieldset_IdField_Text" xml:space="preserve">
+    <value>Id: {0}</value>
+  </data>
+  <data name="Financial_FinancialCategoryFormPage_GeneralFieldset_NameField_Label" xml:space="preserve">
+    <value>Nome</value>
+  </data>
+  <data name="Financial_FinancialCategoryFormPage_GeneralFieldset_NameField_Required" xml:space="preserve">
+    <value>Nome é obrigatório</value>
+  </data>
+  <data name="Financial_FinancialCategoryFormPage_GeneralFieldset_NameField_InvalidLength" xml:space="preserve">
     <value>Tamanho máximo: 100</value>
   </data>
 

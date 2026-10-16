@@ -8,6 +8,6 @@ public class TbFinancialCategoryConfiguration : IEntityTypeConfiguration<TbFinan
 {
     public void Configure(EntityTypeBuilder<TbFinancialCategory> builder)
     {
-        builder.HasIndex(x => x.Name);
+        builder.HasIndex(x => x.Name).IsUnique();
     }
 }

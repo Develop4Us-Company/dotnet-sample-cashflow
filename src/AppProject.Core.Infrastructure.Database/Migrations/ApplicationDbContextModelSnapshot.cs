@@ -291,7 +291,8 @@ namespace AppProject.Core.Infrastructure.Database.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("Name");
+                    b.HasIndex("Name")
+                        .IsUnique();
 
                     b.ToTable("FinancialCategories");
                 });

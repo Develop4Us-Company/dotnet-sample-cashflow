@@ -14,5 +14,7 @@ public enum ExceptionCode
     General_City_DuplicateName,
     General_City_Neighborhood_DuplicateName,
     Financial_FinancialAccount_DuplicateName,
-    Financial_FinancialAccount_InUse
+    Financial_FinancialAccount_InUse,
+    Financial_FinancialCategory_DuplicateName,
+    Financial_FinancialCategory_InUse
 }

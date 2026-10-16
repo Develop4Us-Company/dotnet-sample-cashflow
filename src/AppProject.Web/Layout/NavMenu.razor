@@ -8,10 +8,18 @@
     <RadzenPanelMenuItem Text=@StringResource.GetStringByKey("Menu_Home_Item_Text") Icon="home" Path="/" />
     <AuthorizeView>
         <Authorized>
-            @if (permissions?.Contains(PermissionType.Financial_ManageFinancialAccounts) == true)
+            @if (permissions?.Contains(PermissionType.Financial_ManageFinancialAccounts) == true
+                || permissions?.Contains(PermissionType.Financial_ManageFinancialCategories) == true)
             {
                 <RadzenPanelMenuItem Text=@StringResource.GetStringByKey("NavMenu_Financial_Title") Icon="account_balance">
-                    <RadzenPanelMenuItem Text=@StringResource.GetStringByKey("NavMenu_Financial_FinancialAccount_Text") Icon="account_balance_wallet" Path="/financial/financialaccounts" />
+                    @if (permissions?.Contains(PermissionType.Financial_ManageFinancialAccounts) == true)
+                    {
+                        <RadzenPanelMenuItem Text=@StringResource.GetStringByKey("NavMenu_Financial_FinancialAccount_Text") Icon="account_balance_wallet" Path="/financial/financialaccounts" />
+                    }
+                    @if (permissions?.Contains(PermissionType.Financial_ManageFinancialCategories) == true)
+                    {
+                        <RadzenPanelMenuItem Text=@StringResource.GetStringByKey("NavMenu_Financial_FinancialCategory_Text") Icon="category" Path="/financial/financialcategories" />
+                    }
                 </RadzenPanelMenuItem>
             }
 
