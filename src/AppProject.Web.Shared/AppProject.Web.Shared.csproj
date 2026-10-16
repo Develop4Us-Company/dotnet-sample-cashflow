@@ -11,6 +11,7 @@
   <ItemGroup>
     <ProjectReference Include="..\AppProject.Utils\AppProject.Utils.csproj" />
     <ProjectReference Include="..\AppProject.Web.ApiClient\AppProject.Web.ApiClient.csproj" />
+    <ProjectReference Include="..\AppProject.Web.ApiClient.Financial\AppProject.Web.ApiClient.Financial.csproj" />
     <ProjectReference Include="..\AppProject.Web.Framework\AppProject.Web.Framework.csproj" />
     <ProjectReference Include="..\AppProject.Web.Models\AppProject.Web.Models.csproj" />
   </ItemGroup>

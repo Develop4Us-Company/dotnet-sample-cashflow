@@ -1,0 +1,128 @@
+@page "/financial/accountsreceivable"
+
+@attribute [Authorize]
+
+@inherits SearchPage<AccountReceivableSummarySearchRequest, AccountReceivableSummary>
+
+<SearchControl TRequest="AccountReceivableSummarySearchRequest" Request=@this.Request
+    Title=@StringResource.GetStringByKey("Financial_AccountReceivableSummaryPage_Title") @bind-Take=@this.Request.Take
+    @bind-SearchText=@this.Request.SearchText DisplayTakeInfo=@this.DisplayTakeInfo
+    OnExecuteSearch=@this.ExecuteSearchAsync>
+    <FilterContent>
+        <RadzenFormField Text=@StringResource.GetStringByKey("Financial_AccountReceivableSummaryPage_FilterContent_DueDateFromField_Label")>
+            <RadzenDatePicker TValue="DateTimeOffset?" Name="DueDateFromField" @bind-Value=@this.Request.DueDateFrom
+                DateFormat=@CultureInfo.CurrentCulture.DateTimeFormat.ShortDatePattern AllowClear="true" />
+        </RadzenFormField>
+        <RadzenFormField Text=@StringResource.GetStringByKey("Financial_AccountReceivableSummaryPage_FilterContent_DueDateToField_Label")>
+            <RadzenDatePicker TValue="DateTimeOffset?" Name="DueDateToField" @bind-Value=@this.Request.DueDateTo
+                DateFormat=@CultureInfo.CurrentCulture.DateTimeFormat.ShortDatePattern AllowClear="true" />
+            <RadzenCustomValidator Component="DueDateToField"
+                Validator=@(() => !this.Request.DueDateFrom.HasValue || !this.Request.DueDateTo.HasValue || this.Request.DueDateFrom.Value.Date <= this.Request.DueDateTo.Value.Date)
+                Text=@StringResource.GetStringByKey("Financial_AccountReceivableSummaryPage_FilterContent_DueDateRange_Invalid") />
+        </RadzenFormField>
+        <RadzenStack Gap="0.25rem">
+            <RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center">
+                <RadzenCheckBox TValue="bool?" Name="IsReceivedFilter" TriState="true" @bind-Value=@this.Request.IsReceived />
+                <RadzenLabel Component="IsReceivedFilter" Text=@StringResource.GetStringByKey("Financial_AccountReceivableSummaryPage_FilterContent_IsReceivedField_Label") />
+            </RadzenStack>
+            <RadzenText TextStyle="TextStyle.Caption" Text=@StringResource.GetStringByKey("Financial_AccountReceivableSummaryPage_FilterContent_IsReceivedField_Hint") />
+        </RadzenStack>
+        <RadzenFormField Text=@StringResource.GetStringByKey("Financial_AccountReceivableSummaryPage_FilterContent_FinancialAccountField_Label")>
+            <FinancialAccountSummaryDropDownDataGridControl TValue="Guid?" @bind-Value=@this.Request.FinancialAccountId />
+        </RadzenFormField>
+    </FilterContent>
+    <ChildContent>
+        <DataGridControl TItem="AccountReceivableSummary" Items=@this.Items @bind-SelectedItems=@this.SelectedItems
+            OnNewItem=@this.OnNewItemAsync OnEditItem=@this.OnEditItemAsync OnDeleteItem=@this.OnDeleteItemAsync>
+            <RadzenDataGridColumn TItem="AccountReceivableSummary"
+                Title=@StringResource.GetStringByKey("Financial_AccountReceivableSummaryPage_FinancialCategoryNameColumn_Title")
+                Property=@nameof(AccountReceivableSummary.FinancialCategoryName) />
+            <RadzenDataGridColumn TItem="AccountReceivableSummary"
+                Title=@StringResource.GetStringByKey("Financial_AccountReceivableSummaryPage_DescriptionColumn_Title")
+                Property=@nameof(AccountReceivableSummary.Description) />
+            <RadzenDataGridColumn TItem="AccountReceivableSummary"
+                Title=@StringResource.GetStringByKey("Financial_AccountReceivableSummaryPage_AmountColumn_Title")
+                Property=@nameof(AccountReceivableSummary.Amount) FormatString="{0:N2}" />
+            <RadzenDataGridColumn TItem="AccountReceivableSummary"
+                Title=@StringResource.GetStringByKey("Financial_AccountReceivableSummaryPage_DueDateColumn_Title")
+                Property=@nameof(AccountReceivableSummary.DueDate) FormatString="{0:d}" />
+            <RadzenDataGridColumn TItem="AccountReceivableSummary"
+                Title=@StringResource.GetStringByKey("Financial_AccountReceivableSummaryPage_IsReceivedColumn_Title")
+                Property=@nameof(AccountReceivableSummary.IsReceived)>
+                <Template Context="item">
+                    <RadzenCheckBox TValue="bool" Value=@item.IsReceived Disabled="true" />
+                </Template>
+            </RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="AccountReceivableSummary"
+                Title=@StringResource.GetStringByKey("Financial_AccountReceivableSummaryPage_ReceiptDateColumn_Title")
+                Property=@nameof(AccountReceivableSummary.ReceiptDate) FormatString="{0:d}" />
+            <RadzenDataGridColumn TItem="AccountReceivableSummary"
+                Title=@StringResource.GetStringByKey("Financial_AccountReceivableSummaryPage_FinancialAccountNameColumn_Title")
+                Property=@nameof(AccountReceivableSummary.FinancialAccountName) />
+        </DataGridControl>
+    </ChildContent>
+</SearchControl>
+
+@code {
+    [Inject]
+    private IAccountReceivableSummaryClient AccountReceivableSummaryClient { get; set; } = default!;
+
+    [Inject]
+    private IAccountReceivableClient AccountReceivableClient { get; set; } = default!;
+
+    protected override async Task<IEnumerable<AccountReceivableSummary>> FetchDataAsync()
+    {
+        var request = new AccountReceivableSummarySearchRequest
+        {
+            SearchText = this.Request.SearchText,
+            Take = this.Request.Take,
+            DueDateFrom = this.Request.DueDateFrom is { } from
+                ? new DateTimeOffset(from.Date, from.Offset)
+                : null,
+            DueDateTo = this.Request.DueDateTo is { } to
+                ? new DateTimeOffset(to.Date, to.Offset).AddDays(1).AddTicks(-1)
+                : null,
+            IsReceived = this.Request.IsReceived,
+            FinancialAccountId = this.Request.FinancialAccountId
+        };
+        var response = await this.GetResultOrHandleExceptionAsync<SummariesResponse<AccountReceivableSummary>>(
+            () => this.AccountReceivableSummaryClient.GetSummariesAsync(request));
+
+        return response?.Summaries ?? Enumerable.Empty<AccountReceivableSummary>();
+    }
+
+    private async Task OnNewItemAsync()
+    {
+        await this.OpenDialogAsync<AccountReceivableFormPage, AccountReceivable>(
+            title: StringResource.GetStringByKey("Financial_AccountReceivableFormPage_Title"));
+        await this.ExecuteSearchAsync();
+    }
+
+    private async Task OnEditItemAsync()
+    {
+        var selectedId = this.SelectedItems.FirstOrDefault()?.Id;
+
+        if (selectedId.HasValue)
+        {
+            await this.OpenDialogAsync<AccountReceivableFormPage, AccountReceivable>(
+                title: StringResource.GetStringByKey("Financial_AccountReceivableFormPage_Title"),
+                parameters: new Dictionary<string, object>() { { "Id", selectedId } });
+            await this.ExecuteSearchAsync();
+        }
+    }
+
+    private async Task OnDeleteItemAsync()
+    {
+        var selectedIds = this.SelectedItems.Select(x => x.Id);
+
+        if (selectedIds.Any() && await this.ConfirmAsync(StringResource.GetStringByKey("Dialog_Confirm_Delete_Message")))
+        {
+            foreach (var selectedId in selectedIds)
+            {
+                await this.HandleExceptionAsync(() => this.AccountReceivableClient.DeleteAsync(new DeleteRequest<Guid> { Id = selectedId }));
+            }
+
+            await this.ExecuteSearchAsync();
+        }
+    }
+}

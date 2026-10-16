@@ -302,6 +302,12 @@
     <value>Cities</value>
   </data>
 
+  <data name="NavMenu_Financial_AccountPayable_Text" xml:space="preserve">
+    <value>Accounts payable</value>
+  </data>
+  <data name="NavMenu_Financial_AccountReceivable_Text" xml:space="preserve">
+    <value>Accounts receivable</value>
+  </data>
   <data name="NavMenu_Financial_FinancialAccount_Text" xml:space="preserve">
     <value>Financial accounts</value>
   </data>
@@ -366,6 +372,216 @@
   </data>
   <data name="Financial_FinancialCategoryFormPage_GeneralFieldset_NameField_InvalidLength" xml:space="preserve">
     <value>Max length: 100</value>
+  </data>
+
+  <!--Frontend Financial/AccountPayableSummaryPage-->
+  <data name="Financial_AccountPayableSummaryPage_Title" xml:space="preserve">
+    <value>Accounts payable</value>
+  </data>
+  <data name="Financial_AccountPayableSummaryPage_FilterContent_DueDateFromField_Label" xml:space="preserve">
+    <value>Initial due date</value>
+  </data>
+  <data name="Financial_AccountPayableSummaryPage_FilterContent_DueDateToField_Label" xml:space="preserve">
+    <value>Final due date</value>
+  </data>
+  <data name="Financial_AccountPayableSummaryPage_FilterContent_DueDateRange_Invalid" xml:space="preserve">
+    <value>The initial due date must be earlier than or equal to the final due date.</value>
+  </data>
+  <data name="Financial_AccountPayableSummaryPage_FilterContent_IsPaidField_Label" xml:space="preserve">
+    <value>Paid</value>
+  </data>
+  <data name="Financial_AccountPayableSummaryPage_FilterContent_IsPaidField_Hint" xml:space="preserve">
+    <value>Checked: paid; unchecked: pending; indeterminate: all.</value>
+  </data>
+  <data name="Financial_AccountPayableSummaryPage_FilterContent_FinancialAccountField_Label" xml:space="preserve">
+    <value>Financial account</value>
+  </data>
+  <data name="Financial_AccountPayableSummaryPage_FinancialCategoryNameColumn_Title" xml:space="preserve">
+    <value>Financial category</value>
+  </data>
+  <data name="Financial_AccountPayableSummaryPage_DescriptionColumn_Title" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="Financial_AccountPayableSummaryPage_AmountColumn_Title" xml:space="preserve">
+    <value>Amount</value>
+  </data>
+  <data name="Financial_AccountPayableSummaryPage_DueDateColumn_Title" xml:space="preserve">
+    <value>Due date</value>
+  </data>
+  <data name="Financial_AccountPayableSummaryPage_IsPaidColumn_Title" xml:space="preserve">
+    <value>Paid</value>
+  </data>
+  <data name="Financial_AccountPayableSummaryPage_PaymentDateColumn_Title" xml:space="preserve">
+    <value>Payment date</value>
+  </data>
+  <data name="Financial_AccountPayableSummaryPage_FinancialAccountNameColumn_Title" xml:space="preserve">
+    <value>Financial account</value>
+  </data>
+
+  <!--Frontend Financial/AccountPayableFormPage-->
+  <data name="Financial_AccountPayableFormPage_Title" xml:space="preserve">
+    <value>Account payable</value>
+  </data>
+  <data name="Financial_AccountPayableFormPage_SettlementHint" xml:space="preserve">
+    <value>To record a payment, mark the entry as paid and enter the payment date and financial account.</value>
+  </data>
+  <data name="Financial_AccountPayableFormPage_GeneralFieldset_Title" xml:space="preserve">
+    <value>General</value>
+  </data>
+  <data name="Financial_AccountPayableFormPage_GeneralFieldset_IdField_Text" xml:space="preserve">
+    <value>Id: {0}</value>
+  </data>
+  <data name="Financial_AccountPayableFormPage_GeneralFieldset_FinancialCategoryField_Label" xml:space="preserve">
+    <value>Financial category</value>
+  </data>
+  <data name="Financial_AccountPayableFormPage_GeneralFieldset_FinancialCategoryField_Required" xml:space="preserve">
+    <value>Financial category is required.</value>
+  </data>
+  <data name="Financial_AccountPayableFormPage_GeneralFieldset_DescriptionField_Label" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="Financial_AccountPayableFormPage_GeneralFieldset_DescriptionField_Required" xml:space="preserve">
+    <value>Description is required.</value>
+  </data>
+  <data name="Financial_AccountPayableFormPage_GeneralFieldset_DescriptionField_InvalidLength" xml:space="preserve">
+    <value>Max length: 200</value>
+  </data>
+  <data name="Financial_AccountPayableFormPage_GeneralFieldset_AmountField_Label" xml:space="preserve">
+    <value>Amount</value>
+  </data>
+  <data name="Financial_AccountPayableFormPage_GeneralFieldset_AmountField_Invalid" xml:space="preserve">
+    <value>Amount must be greater than zero.</value>
+  </data>
+  <data name="Financial_AccountPayableFormPage_GeneralFieldset_DueDateField_Label" xml:space="preserve">
+    <value>Due date</value>
+  </data>
+  <data name="Financial_AccountPayableFormPage_GeneralFieldset_DueDateField_Required" xml:space="preserve">
+    <value>Due date is required.</value>
+  </data>
+  <data name="Financial_AccountPayableFormPage_GeneralFieldset_IsPaidField_Label" xml:space="preserve">
+    <value>Paid</value>
+  </data>
+  <data name="Financial_AccountPayableFormPage_GeneralFieldset_PaymentDateField_Label" xml:space="preserve">
+    <value>Payment date</value>
+  </data>
+  <data name="Financial_AccountPayableFormPage_GeneralFieldset_PaymentDateField_Required" xml:space="preserve">
+    <value>Payment date is required for paid entries.</value>
+  </data>
+  <data name="Financial_AccountPayableFormPage_GeneralFieldset_FinancialAccountField_Label" xml:space="preserve">
+    <value>Financial account</value>
+  </data>
+  <data name="Financial_AccountPayableFormPage_GeneralFieldset_FinancialAccountField_Required" xml:space="preserve">
+    <value>Financial account is required for paid entries.</value>
+  </data>
+
+  <!--Frontend Financial/AccountReceivableSummaryPage-->
+  <data name="Financial_AccountReceivableSummaryPage_Title" xml:space="preserve">
+    <value>Accounts receivable</value>
+  </data>
+  <data name="Financial_AccountReceivableSummaryPage_FilterContent_DueDateFromField_Label" xml:space="preserve">
+    <value>Initial due date</value>
+  </data>
+  <data name="Financial_AccountReceivableSummaryPage_FilterContent_DueDateToField_Label" xml:space="preserve">
+    <value>Final due date</value>
+  </data>
+  <data name="Financial_AccountReceivableSummaryPage_FilterContent_DueDateRange_Invalid" xml:space="preserve">
+    <value>The initial due date must be earlier than or equal to the final due date.</value>
+  </data>
+  <data name="Financial_AccountReceivableSummaryPage_FilterContent_IsReceivedField_Label" xml:space="preserve">
+    <value>Received</value>
+  </data>
+  <data name="Financial_AccountReceivableSummaryPage_FilterContent_IsReceivedField_Hint" xml:space="preserve">
+    <value>Checked: received; unchecked: pending; indeterminate: all.</value>
+  </data>
+  <data name="Financial_AccountReceivableSummaryPage_FilterContent_FinancialAccountField_Label" xml:space="preserve">
+    <value>Financial account</value>
+  </data>
+  <data name="Financial_AccountReceivableSummaryPage_FinancialCategoryNameColumn_Title" xml:space="preserve">
+    <value>Financial category</value>
+  </data>
+  <data name="Financial_AccountReceivableSummaryPage_DescriptionColumn_Title" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="Financial_AccountReceivableSummaryPage_AmountColumn_Title" xml:space="preserve">
+    <value>Amount</value>
+  </data>
+  <data name="Financial_AccountReceivableSummaryPage_DueDateColumn_Title" xml:space="preserve">
+    <value>Due date</value>
+  </data>
+  <data name="Financial_AccountReceivableSummaryPage_IsReceivedColumn_Title" xml:space="preserve">
+    <value>Received</value>
+  </data>
+  <data name="Financial_AccountReceivableSummaryPage_ReceiptDateColumn_Title" xml:space="preserve">
+    <value>Receipt date</value>
+  </data>
+  <data name="Financial_AccountReceivableSummaryPage_FinancialAccountNameColumn_Title" xml:space="preserve">
+    <value>Financial account</value>
+  </data>
+
+  <!--Frontend Financial/AccountReceivableFormPage-->
+  <data name="Financial_AccountReceivableFormPage_Title" xml:space="preserve">
+    <value>Account receivable</value>
+  </data>
+  <data name="Financial_AccountReceivableFormPage_SettlementHint" xml:space="preserve">
+    <value>To record a receipt, mark the entry as received and enter the receipt date and financial account.</value>
+  </data>
+  <data name="Financial_AccountReceivableFormPage_GeneralFieldset_Title" xml:space="preserve">
+    <value>General</value>
+  </data>
+  <data name="Financial_AccountReceivableFormPage_GeneralFieldset_IdField_Text" xml:space="preserve">
+    <value>Id: {0}</value>
+  </data>
+  <data name="Financial_AccountReceivableFormPage_GeneralFieldset_FinancialCategoryField_Label" xml:space="preserve">
+    <value>Financial category</value>
+  </data>
+  <data name="Financial_AccountReceivableFormPage_GeneralFieldset_FinancialCategoryField_Required" xml:space="preserve">
+    <value>Financial category is required.</value>
+  </data>
+  <data name="Financial_AccountReceivableFormPage_GeneralFieldset_DescriptionField_Label" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="Financial_AccountReceivableFormPage_GeneralFieldset_DescriptionField_Required" xml:space="preserve">
+    <value>Description is required.</value>
+  </data>
+  <data name="Financial_AccountReceivableFormPage_GeneralFieldset_DescriptionField_InvalidLength" xml:space="preserve">
+    <value>Max length: 200</value>
+  </data>
+  <data name="Financial_AccountReceivableFormPage_GeneralFieldset_AmountField_Label" xml:space="preserve">
+    <value>Amount</value>
+  </data>
+  <data name="Financial_AccountReceivableFormPage_GeneralFieldset_AmountField_Invalid" xml:space="preserve">
+    <value>Amount must be greater than zero.</value>
+  </data>
+  <data name="Financial_AccountReceivableFormPage_GeneralFieldset_DueDateField_Label" xml:space="preserve">
+    <value>Due date</value>
+  </data>
+  <data name="Financial_AccountReceivableFormPage_GeneralFieldset_DueDateField_Required" xml:space="preserve">
+    <value>Due date is required.</value>
+  </data>
+  <data name="Financial_AccountReceivableFormPage_GeneralFieldset_IsReceivedField_Label" xml:space="preserve">
+    <value>Received</value>
+  </data>
+  <data name="Financial_AccountReceivableFormPage_GeneralFieldset_ReceiptDateField_Label" xml:space="preserve">
+    <value>Receipt date</value>
+  </data>
+  <data name="Financial_AccountReceivableFormPage_GeneralFieldset_ReceiptDateField_Required" xml:space="preserve">
+    <value>Receipt date is required for received entries.</value>
+  </data>
+  <data name="Financial_AccountReceivableFormPage_GeneralFieldset_FinancialAccountField_Label" xml:space="preserve">
+    <value>Financial account</value>
+  </data>
+  <data name="Financial_AccountReceivableFormPage_GeneralFieldset_FinancialAccountField_Required" xml:space="preserve">
+    <value>Financial account is required for received entries.</value>
+  </data>
+
+  <!--Frontend Financial/FinancialAccountSummaryDropDownDataGridControl-->
+  <data name="Financial_FinancialAccountSummaryDropDownDataGridControl_NameColumn_Title" xml:space="preserve">
+    <value>Name</value>
+  </data>
+
+  <!--Frontend Financial/FinancialCategorySummaryDropDownDataGridControl-->
+  <data name="Financial_FinancialCategorySummaryDropDownDataGridControl_NameColumn_Title" xml:space="preserve">
+    <value>Name</value>
   </data>
 
   <!--Frontend General/CountrySummaryPage-->

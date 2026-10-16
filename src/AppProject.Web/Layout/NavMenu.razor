@@ -9,7 +9,9 @@
     <AuthorizeView>
         <Authorized>
             @if (permissions?.Contains(PermissionType.Financial_ManageFinancialAccounts) == true
-                || permissions?.Contains(PermissionType.Financial_ManageFinancialCategories) == true)
+                || permissions?.Contains(PermissionType.Financial_ManageFinancialCategories) == true
+                || permissions?.Contains(PermissionType.Financial_ManageAccountsPayable) == true
+                || permissions?.Contains(PermissionType.Financial_ManageAccountsReceivable) == true)
             {
                 <RadzenPanelMenuItem Text=@StringResource.GetStringByKey("NavMenu_Financial_Title") Icon="account_balance">
                     @if (permissions?.Contains(PermissionType.Financial_ManageFinancialAccounts) == true)
@@ -19,6 +21,14 @@
                     @if (permissions?.Contains(PermissionType.Financial_ManageFinancialCategories) == true)
                     {
                         <RadzenPanelMenuItem Text=@StringResource.GetStringByKey("NavMenu_Financial_FinancialCategory_Text") Icon="category" Path="/financial/financialcategories" />
+                    }
+                    @if (permissions?.Contains(PermissionType.Financial_ManageAccountsPayable) == true)
+                    {
+                        <RadzenPanelMenuItem Text=@StringResource.GetStringByKey("NavMenu_Financial_AccountPayable_Text") Icon="call_made" Path="/financial/accountspayable" />
+                    }
+                    @if (permissions?.Contains(PermissionType.Financial_ManageAccountsReceivable) == true)
+                    {
+                        <RadzenPanelMenuItem Text=@StringResource.GetStringByKey("NavMenu_Financial_AccountReceivable_Text") Icon="call_received" Path="/financial/accountsreceivable" />
                     }
                 </RadzenPanelMenuItem>
             }

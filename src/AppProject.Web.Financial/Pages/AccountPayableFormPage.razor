@@ -1,0 +1,114 @@
+@attribute [Authorize]
+
+@inherits ModelFormPage<AccountPayable>
+
+<ModelFormControl TModel="AccountPayable" Model=@this.Model OnSave=@this.OnSaveAsync OnCancel=@this.OnCancelAsync>
+    <FieldsetControl Title=@StringResource.GetStringByKey("Financial_AccountPayableFormPage_GeneralFieldset_Title")>
+        <RadzenRow>
+            <RadzenColumn>
+                <RadzenText TextStyle="TextStyle.Subtitle2">@StringResource.GetStringByKey("Financial_AccountPayableFormPage_GeneralFieldset_IdField_Text", this.Model.Id)</RadzenText>
+            </RadzenColumn>
+        </RadzenRow>
+        <RadzenRow>
+            <RadzenColumn>
+                <RadzenStack Orientation="Orientation.Horizontal" Gap="1rem" Wrap="FlexWrap.Wrap">
+                    <RadzenFormField Text=@StringResource.GetStringByKey("Financial_AccountPayableFormPage_GeneralFieldset_FinancialCategoryField_Label")>
+                        <FinancialCategorySummaryDropDownDataGridControl Name="FinancialCategoryField" TValue="Guid" @bind-Value=@this.Model.FinancialCategoryId />
+                        <RadzenCustomValidator Component="FinancialCategoryField" Validator=@(() => this.Model.FinancialCategoryId != Guid.Empty)
+                            Text=@StringResource.GetStringByKey("Financial_AccountPayableFormPage_GeneralFieldset_FinancialCategoryField_Required") />
+                    </RadzenFormField>
+                    <RadzenFormField Text=@StringResource.GetStringByKey("Financial_AccountPayableFormPage_GeneralFieldset_DescriptionField_Label") Style="width: 400px; max-width: 100%;">
+                        <RadzenTextBox Name="DescriptionField" @bind-Value=@this.Model.Description MaxLength="200" />
+                        <RadzenRequiredValidator Component="DescriptionField" Text=@StringResource.GetStringByKey("Financial_AccountPayableFormPage_GeneralFieldset_DescriptionField_Required") />
+                        <RadzenLengthValidator Component="DescriptionField" Max="200" Text=@StringResource.GetStringByKey("Financial_AccountPayableFormPage_GeneralFieldset_DescriptionField_InvalidLength") />
+                    </RadzenFormField>
+                    <RadzenFormField Text=@StringResource.GetStringByKey("Financial_AccountPayableFormPage_GeneralFieldset_AmountField_Label")>
+                        <RadzenNumeric TValue="decimal" Name="AmountField" @bind-Value=@this.Model.Amount
+                            Min=@(0.01m) Step="0.01" Format="N2" ShowUpDown="false" />
+                        <RadzenCustomValidator Component="AmountField" Validator=@(() => this.Model.Amount > 0)
+                            Text=@StringResource.GetStringByKey("Financial_AccountPayableFormPage_GeneralFieldset_AmountField_Invalid") />
+                    </RadzenFormField>
+                    <RadzenFormField Text=@StringResource.GetStringByKey("Financial_AccountPayableFormPage_GeneralFieldset_DueDateField_Label")>
+                        <RadzenDatePicker TValue="DateTimeOffset" Name="DueDateField" @bind-Value=@this.Model.DueDate
+                            DateFormat=@CultureInfo.CurrentCulture.DateTimeFormat.ShortDatePattern AllowClear="false" />
+                        <RadzenCustomValidator Component="DueDateField" Validator=@(() => this.Model.DueDate != default)
+                            Text=@StringResource.GetStringByKey("Financial_AccountPayableFormPage_GeneralFieldset_DueDateField_Required") />
+                    </RadzenFormField>
+                </RadzenStack>
+            </RadzenColumn>
+        </RadzenRow>
+        <RadzenRow class="rz-mt-3">
+            <RadzenColumn>
+                <RadzenText TextStyle="TextStyle.Body2" Text=@StringResource.GetStringByKey("Financial_AccountPayableFormPage_SettlementHint") />
+                <RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center" Gap="1rem" Wrap="FlexWrap.Wrap">
+                    <RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center">
+                        <RadzenCheckBox TValue="bool" Name="IsPaidField" @bind-Value=@this.Model.IsPaid />
+                        <RadzenLabel Component="IsPaidField" Text=@StringResource.GetStringByKey("Financial_AccountPayableFormPage_GeneralFieldset_IsPaidField_Label") />
+                    </RadzenStack>
+                    <RadzenFormField Text=@StringResource.GetStringByKey("Financial_AccountPayableFormPage_GeneralFieldset_PaymentDateField_Label")>
+                        <RadzenDatePicker TValue="DateTimeOffset?" Name="PaymentDateField" @bind-Value=@this.Model.PaymentDate
+                            DateFormat=@CultureInfo.CurrentCulture.DateTimeFormat.ShortDatePattern AllowClear="true" />
+                        <RadzenCustomValidator Component="PaymentDateField" Validator=@(() => !this.Model.IsPaid || this.Model.PaymentDate.HasValue)
+                            Text=@StringResource.GetStringByKey("Financial_AccountPayableFormPage_GeneralFieldset_PaymentDateField_Required") />
+                    </RadzenFormField>
+                    <RadzenFormField Text=@StringResource.GetStringByKey("Financial_AccountPayableFormPage_GeneralFieldset_FinancialAccountField_Label")>
+                        <FinancialAccountSummaryDropDownDataGridControl Name="FinancialAccountField" TValue="Guid?" @bind-Value=@this.Model.FinancialAccountId />
+                        <RadzenCustomValidator Component="FinancialAccountField"
+                            Validator=@(() => !this.Model.IsPaid || (this.Model.FinancialAccountId.HasValue && this.Model.FinancialAccountId.Value != Guid.Empty))
+                            Text=@StringResource.GetStringByKey("Financial_AccountPayableFormPage_GeneralFieldset_FinancialAccountField_Required") />
+                    </RadzenFormField>
+                </RadzenStack>
+            </RadzenColumn>
+        </RadzenRow>
+    </FieldsetControl>
+</ModelFormControl>
+
+@code {
+    [Parameter]
+    public Guid? Id { get; set; }
+
+    [Inject]
+    private IAccountPayableClient AccountPayableClient { get; set; } = default!;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await base.OnInitializedAsync();
+
+        if (this.Id.HasValue)
+        {
+            var response = await this.GetResultOrHandleExceptionAsync<EntityResponse<AccountPayable>>(
+                () => this.AccountPayableClient.GetAsync(new GetByIdRequest<Guid> { Id = this.Id.Value }));
+
+            if (response is not null)
+            {
+                this.SetModel(response.Entity);
+            }
+            else
+            {
+                await this.CloseDialogAsync();
+            }
+        }
+    }
+
+    private async Task OnSaveAsync()
+    {
+        var response = await this.GetResultOrHandleExceptionAsync<KeyResponse<Guid>>(
+            async () =>
+            {
+                if (this.Model.Id.GetValueOrDefault() != Guid.Empty)
+                {
+                    return await this.AccountPayableClient.PutAsync(new CreateOrUpdateRequest<AccountPayable> { Entity = this.Model });
+                }
+
+                return await this.AccountPayableClient.PostAsync(new CreateOrUpdateRequest<AccountPayable> { Entity = this.Model });
+            });
+
+        if (response is not null)
+        {
+            this.Model.Id = response.Id;
+            await this.CloseDialogAsync(this.Model);
+        }
+    }
+
+    private Task OnCancelAsync() => this.CloseDialogAsync();
+}

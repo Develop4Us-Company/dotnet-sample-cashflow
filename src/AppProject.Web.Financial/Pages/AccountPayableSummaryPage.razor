@@ -1,0 +1,128 @@
+@page "/financial/accountspayable"
+
+@attribute [Authorize]
+
+@inherits SearchPage<AccountPayableSummarySearchRequest, AccountPayableSummary>
+
+<SearchControl TRequest="AccountPayableSummarySearchRequest" Request=@this.Request
+    Title=@StringResource.GetStringByKey("Financial_AccountPayableSummaryPage_Title") @bind-Take=@this.Request.Take
+    @bind-SearchText=@this.Request.SearchText DisplayTakeInfo=@this.DisplayTakeInfo
+    OnExecuteSearch=@this.ExecuteSearchAsync>
+    <FilterContent>
+        <RadzenFormField Text=@StringResource.GetStringByKey("Financial_AccountPayableSummaryPage_FilterContent_DueDateFromField_Label")>
+            <RadzenDatePicker TValue="DateTimeOffset?" Name="DueDateFromField" @bind-Value=@this.Request.DueDateFrom
+                DateFormat=@CultureInfo.CurrentCulture.DateTimeFormat.ShortDatePattern AllowClear="true" />
+        </RadzenFormField>
+        <RadzenFormField Text=@StringResource.GetStringByKey("Financial_AccountPayableSummaryPage_FilterContent_DueDateToField_Label")>
+            <RadzenDatePicker TValue="DateTimeOffset?" Name="DueDateToField" @bind-Value=@this.Request.DueDateTo
+                DateFormat=@CultureInfo.CurrentCulture.DateTimeFormat.ShortDatePattern AllowClear="true" />
+            <RadzenCustomValidator Component="DueDateToField"
+                Validator=@(() => !this.Request.DueDateFrom.HasValue || !this.Request.DueDateTo.HasValue || this.Request.DueDateFrom.Value.Date <= this.Request.DueDateTo.Value.Date)
+                Text=@StringResource.GetStringByKey("Financial_AccountPayableSummaryPage_FilterContent_DueDateRange_Invalid") />
+        </RadzenFormField>
+        <RadzenStack Gap="0.25rem">
+            <RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center">
+                <RadzenCheckBox TValue="bool?" Name="IsPaidFilter" TriState="true" @bind-Value=@this.Request.IsPaid />
+                <RadzenLabel Component="IsPaidFilter" Text=@StringResource.GetStringByKey("Financial_AccountPayableSummaryPage_FilterContent_IsPaidField_Label") />
+            </RadzenStack>
+            <RadzenText TextStyle="TextStyle.Caption" Text=@StringResource.GetStringByKey("Financial_AccountPayableSummaryPage_FilterContent_IsPaidField_Hint") />
+        </RadzenStack>
+        <RadzenFormField Text=@StringResource.GetStringByKey("Financial_AccountPayableSummaryPage_FilterContent_FinancialAccountField_Label")>
+            <FinancialAccountSummaryDropDownDataGridControl TValue="Guid?" @bind-Value=@this.Request.FinancialAccountId />
+        </RadzenFormField>
+    </FilterContent>
+    <ChildContent>
+        <DataGridControl TItem="AccountPayableSummary" Items=@this.Items @bind-SelectedItems=@this.SelectedItems
+            OnNewItem=@this.OnNewItemAsync OnEditItem=@this.OnEditItemAsync OnDeleteItem=@this.OnDeleteItemAsync>
+            <RadzenDataGridColumn TItem="AccountPayableSummary"
+                Title=@StringResource.GetStringByKey("Financial_AccountPayableSummaryPage_FinancialCategoryNameColumn_Title")
+                Property=@nameof(AccountPayableSummary.FinancialCategoryName) />
+            <RadzenDataGridColumn TItem="AccountPayableSummary"
+                Title=@StringResource.GetStringByKey("Financial_AccountPayableSummaryPage_DescriptionColumn_Title")
+                Property=@nameof(AccountPayableSummary.Description) />
+            <RadzenDataGridColumn TItem="AccountPayableSummary"
+                Title=@StringResource.GetStringByKey("Financial_AccountPayableSummaryPage_AmountColumn_Title")
+                Property=@nameof(AccountPayableSummary.Amount) FormatString="{0:N2}" />
+            <RadzenDataGridColumn TItem="AccountPayableSummary"
+                Title=@StringResource.GetStringByKey("Financial_AccountPayableSummaryPage_DueDateColumn_Title")
+                Property=@nameof(AccountPayableSummary.DueDate) FormatString="{0:d}" />
+            <RadzenDataGridColumn TItem="AccountPayableSummary"
+                Title=@StringResource.GetStringByKey("Financial_AccountPayableSummaryPage_IsPaidColumn_Title")
+                Property=@nameof(AccountPayableSummary.IsPaid)>
+                <Template Context="item">
+                    <RadzenCheckBox TValue="bool" Value=@item.IsPaid Disabled="true" />
+                </Template>
+            </RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="AccountPayableSummary"
+                Title=@StringResource.GetStringByKey("Financial_AccountPayableSummaryPage_PaymentDateColumn_Title")
+                Property=@nameof(AccountPayableSummary.PaymentDate) FormatString="{0:d}" />
+            <RadzenDataGridColumn TItem="AccountPayableSummary"
+                Title=@StringResource.GetStringByKey("Financial_AccountPayableSummaryPage_FinancialAccountNameColumn_Title")
+                Property=@nameof(AccountPayableSummary.FinancialAccountName) />
+        </DataGridControl>
+    </ChildContent>
+</SearchControl>
+
+@code {
+    [Inject]
+    private IAccountPayableSummaryClient AccountPayableSummaryClient { get; set; } = default!;
+
+    [Inject]
+    private IAccountPayableClient AccountPayableClient { get; set; } = default!;
+
+    protected override async Task<IEnumerable<AccountPayableSummary>> FetchDataAsync()
+    {
+        var request = new AccountPayableSummarySearchRequest
+        {
+            SearchText = this.Request.SearchText,
+            Take = this.Request.Take,
+            DueDateFrom = this.Request.DueDateFrom is { } from
+                ? new DateTimeOffset(from.Date, from.Offset)
+                : null,
+            DueDateTo = this.Request.DueDateTo is { } to
+                ? new DateTimeOffset(to.Date, to.Offset).AddDays(1).AddTicks(-1)
+                : null,
+            IsPaid = this.Request.IsPaid,
+            FinancialAccountId = this.Request.FinancialAccountId
+        };
+        var response = await this.GetResultOrHandleExceptionAsync<SummariesResponse<AccountPayableSummary>>(
+            () => this.AccountPayableSummaryClient.GetSummariesAsync(request));
+
+        return response?.Summaries ?? Enumerable.Empty<AccountPayableSummary>();
+    }
+
+    private async Task OnNewItemAsync()
+    {
+        await this.OpenDialogAsync<AccountPayableFormPage, AccountPayable>(
+            title: StringResource.GetStringByKey("Financial_AccountPayableFormPage_Title"));
+        await this.ExecuteSearchAsync();
+    }
+
+    private async Task OnEditItemAsync()
+    {
+        var selectedId = this.SelectedItems.FirstOrDefault()?.Id;
+
+        if (selectedId.HasValue)
+        {
+            await this.OpenDialogAsync<AccountPayableFormPage, AccountPayable>(
+                title: StringResource.GetStringByKey("Financial_AccountPayableFormPage_Title"),
+                parameters: new Dictionary<string, object>() { { "Id", selectedId } });
+            await this.ExecuteSearchAsync();
+        }
+    }
+
+    private async Task OnDeleteItemAsync()
+    {
+        var selectedIds = this.SelectedItems.Select(x => x.Id);
+
+        if (selectedIds.Any() && await this.ConfirmAsync(StringResource.GetStringByKey("Dialog_Confirm_Delete_Message")))
+        {
+            foreach (var selectedId in selectedIds)
+            {
+                await this.HandleExceptionAsync(() => this.AccountPayableClient.DeleteAsync(new DeleteRequest<Guid> { Id = selectedId }));
+            }
+
+            await this.ExecuteSearchAsync();
+        }
+    }
+}
