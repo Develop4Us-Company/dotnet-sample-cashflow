@@ -58,6 +58,37 @@
     <value>Esta categoria financeira está vinculada a contas a pagar ou receber e não pode ser excluída.</value>
   </data>
 
+  <data name="Financial_AccountPayable_FinancialAccountNotFound" xml:space="preserve">
+    <value>A conta financeira selecionada não existe.</value>
+  </data>
+  <data name="Financial_AccountPayable_FinancialAccountRequired" xml:space="preserve">
+    <value>A conta financeira é obrigatória ao marcar o lançamento como pago ou recebido.</value>
+  </data>
+  <data name="Financial_AccountPayable_FinancialCategoryNotFound" xml:space="preserve">
+    <value>A categoria financeira selecionada não existe.</value>
+  </data>
+  <data name="Financial_AccountPayable_InvalidDueDateRange" xml:space="preserve">
+    <value>A data de vencimento inicial deve ser anterior ou igual à data final.</value>
+  </data>
+  <data name="Financial_AccountPayable_PaymentDateRequired" xml:space="preserve">
+    <value>A data do pagamento é obrigatória ao marcar a conta como paga.</value>
+  </data>
+  <data name="Financial_AccountReceivable_FinancialAccountNotFound" xml:space="preserve">
+    <value>A conta financeira selecionada não existe.</value>
+  </data>
+  <data name="Financial_AccountReceivable_FinancialAccountRequired" xml:space="preserve">
+    <value>A conta financeira é obrigatória ao marcar o lançamento como pago ou recebido.</value>
+  </data>
+  <data name="Financial_AccountReceivable_FinancialCategoryNotFound" xml:space="preserve">
+    <value>A categoria financeira selecionada não existe.</value>
+  </data>
+  <data name="Financial_AccountReceivable_InvalidDueDateRange" xml:space="preserve">
+    <value>A data de vencimento inicial deve ser anterior ou igual à data final.</value>
+  </data>
+  <data name="Financial_AccountReceivable_ReceiptDateRequired" xml:space="preserve">
+    <value>A data do recebimento é obrigatória ao marcar a conta como recebida.</value>
+  </data>
+
   <!--Frontend-->
   <data name="Footer_Text" xml:space="preserve">
     <value>Copyright © Nome da Sua Empresa. Todos os direitos reservados.</value>

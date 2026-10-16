@@ -58,6 +58,37 @@
     <value>This financial category is linked to accounts payable or receivable and cannot be deleted.</value>
   </data>
 
+  <data name="Financial_AccountPayable_FinancialAccountNotFound" xml:space="preserve">
+    <value>The selected financial account does not exist.</value>
+  </data>
+  <data name="Financial_AccountPayable_FinancialAccountRequired" xml:space="preserve">
+    <value>Financial account is required when the entry is paid or received.</value>
+  </data>
+  <data name="Financial_AccountPayable_FinancialCategoryNotFound" xml:space="preserve">
+    <value>The selected financial category does not exist.</value>
+  </data>
+  <data name="Financial_AccountPayable_InvalidDueDateRange" xml:space="preserve">
+    <value>The initial due date must be earlier than or equal to the final due date.</value>
+  </data>
+  <data name="Financial_AccountPayable_PaymentDateRequired" xml:space="preserve">
+    <value>Payment date is required when the entry is paid.</value>
+  </data>
+  <data name="Financial_AccountReceivable_FinancialAccountNotFound" xml:space="preserve">
+    <value>The selected financial account does not exist.</value>
+  </data>
+  <data name="Financial_AccountReceivable_FinancialAccountRequired" xml:space="preserve">
+    <value>Financial account is required when the entry is paid or received.</value>
+  </data>
+  <data name="Financial_AccountReceivable_FinancialCategoryNotFound" xml:space="preserve">
+    <value>The selected financial category does not exist.</value>
+  </data>
+  <data name="Financial_AccountReceivable_InvalidDueDateRange" xml:space="preserve">
+    <value>The initial due date must be earlier than or equal to the final due date.</value>
+  </data>
+  <data name="Financial_AccountReceivable_ReceiptDateRequired" xml:space="preserve">
+    <value>Receipt date is required when the entry is received.</value>
+  </data>
+
   <!--Frontend-->
   <data name="Footer_Text" xml:space="preserve">
     <value>Copyright © Your Company Name. All rights reserved.</value>

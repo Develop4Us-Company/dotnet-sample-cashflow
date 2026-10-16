@@ -37,6 +37,12 @@ public class PermissionService(IUserContext userContext)
             case PermissionType.Financial_ManageFinancialCategories when currentUser.IsSystemAdmin:
                 return true;
 
+            case PermissionType.Financial_ManageAccountsPayable when currentUser.IsSystemAdmin:
+                return true;
+
+            case PermissionType.Financial_ManageAccountsReceivable when currentUser.IsSystemAdmin:
+                return true;
+
             // Add more cases for other permissions as needed
             default:
                 return false;

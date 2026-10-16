@@ -59,6 +59,37 @@
   </data>
 
 
+  <data name="Financial_AccountPayable_FinancialAccountNotFound" xml:space="preserve">
+    <value>La cuenta financiera seleccionada no existe.</value>
+  </data>
+  <data name="Financial_AccountPayable_FinancialAccountRequired" xml:space="preserve">
+    <value>La cuenta financiera es obligatoria al marcar el registro como pagado o recibido.</value>
+  </data>
+  <data name="Financial_AccountPayable_FinancialCategoryNotFound" xml:space="preserve">
+    <value>La categoría financiera seleccionada no existe.</value>
+  </data>
+  <data name="Financial_AccountPayable_InvalidDueDateRange" xml:space="preserve">
+    <value>La fecha de vencimiento inicial debe ser anterior o igual a la fecha final.</value>
+  </data>
+  <data name="Financial_AccountPayable_PaymentDateRequired" xml:space="preserve">
+    <value>La fecha de pago es obligatoria al marcar la cuenta como pagada.</value>
+  </data>
+  <data name="Financial_AccountReceivable_FinancialAccountNotFound" xml:space="preserve">
+    <value>La cuenta financiera seleccionada no existe.</value>
+  </data>
+  <data name="Financial_AccountReceivable_FinancialAccountRequired" xml:space="preserve">
+    <value>La cuenta financiera es obligatoria al marcar el registro como pagado o recibido.</value>
+  </data>
+  <data name="Financial_AccountReceivable_FinancialCategoryNotFound" xml:space="preserve">
+    <value>La categoría financiera seleccionada no existe.</value>
+  </data>
+  <data name="Financial_AccountReceivable_InvalidDueDateRange" xml:space="preserve">
+    <value>La fecha de vencimiento inicial debe ser anterior o igual a la fecha final.</value>
+  </data>
+  <data name="Financial_AccountReceivable_ReceiptDateRequired" xml:space="preserve">
+    <value>La fecha de cobro es obligatoria al marcar la cuenta como recibida.</value>
+  </data>
+
   <!--Frontend-->
   <data name="Footer_Text" xml:space="preserve">
     <value>Copyright © Nombre de su empresa. Todos los derechos reservados.</value>
