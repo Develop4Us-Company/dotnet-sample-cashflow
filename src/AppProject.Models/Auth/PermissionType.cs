@@ -8,4 +8,5 @@ public enum PermissionType
     Financial_ManageFinancialCategories = 3,
     Financial_ManageAccountsPayable = 4,
     Financial_ManageAccountsReceivable = 5,
+    Financial_ViewFinancialAccountBalances = 6,
 }

@@ -492,6 +492,21 @@
               Looks up a localized string similar to This financial account is linked to accounts payable or receivable and cannot be deleted..
             </summary>
         </member>
+        <member name="P:AppProject.Resources.Resource.Financial_FinancialAccountBalanceSummaryPage_BalanceColumn_Title">
+            <summary>
+              Looks up a localized string similar to Balance.
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Financial_FinancialAccountBalanceSummaryPage_NameColumn_Title">
+            <summary>
+              Looks up a localized string similar to Financial account.
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.Financial_FinancialAccountBalanceSummaryPage_Title">
+            <summary>
+              Looks up a localized string similar to Account balances.
+            </summary>
+        </member>
         <member name="P:AppProject.Resources.Resource.Financial_FinancialAccountFormPage_GeneralFieldset_IdField_Text">
             <summary>
               Looks up a localized string similar to Id: {0}.
@@ -950,6 +965,11 @@
         <member name="P:AppProject.Resources.Resource.NavMenu_Financial_FinancialAccount_Text">
             <summary>
               Looks up a localized string similar to Financial accounts.
+            </summary>
+        </member>
+        <member name="P:AppProject.Resources.Resource.NavMenu_Financial_FinancialAccountBalance_Text">
+            <summary>
+              Looks up a localized string similar to Account balances.
             </summary>
         </member>
         <member name="P:AppProject.Resources.Resource.NavMenu_Financial_FinancialCategory_Text">

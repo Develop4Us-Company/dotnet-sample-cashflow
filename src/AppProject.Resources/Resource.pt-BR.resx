@@ -314,8 +314,22 @@
   <data name="NavMenu_Financial_FinancialCategory_Text" xml:space="preserve">
     <value>Categorias financeiras</value>
   </data>
+  <data name="NavMenu_Financial_FinancialAccountBalance_Text" xml:space="preserve">
+    <value>Saldos das contas</value>
+  </data>
   <data name="NavMenu_Financial_Title" xml:space="preserve">
     <value>Financeiro</value>
+  </data>
+
+  <!--Frontend Financial/FinancialAccountBalanceSummaryPage-->
+  <data name="Financial_FinancialAccountBalanceSummaryPage_Title" xml:space="preserve">
+    <value>Saldos das contas</value>
+  </data>
+  <data name="Financial_FinancialAccountBalanceSummaryPage_NameColumn_Title" xml:space="preserve">
+    <value>Conta financeira</value>
+  </data>
+  <data name="Financial_FinancialAccountBalanceSummaryPage_BalanceColumn_Title" xml:space="preserve">
+    <value>Saldo</value>
   </data>
 
   <!--Frontend Financial/FinancialAccountSummaryPage-->

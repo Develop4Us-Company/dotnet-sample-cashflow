@@ -79,6 +79,18 @@
         <member name="M:Refit.Implementation.Generated.AppProjectWebApiClientFinancialIAccountReceivableSummaryClient.GetSummaryAsync(AppProject.Models.GetByIdRequest{System.Guid},System.Threading.CancellationToken)">
             <inheritdoc />
         </member>
+        <member name="T:Refit.Implementation.Generated.AppProjectWebApiClientFinancialIFinancialAccountBalanceSummaryClient">
+            <inheritdoc />
+        </member>
+        <member name="P:Refit.Implementation.Generated.AppProjectWebApiClientFinancialIFinancialAccountBalanceSummaryClient.Client">
+            <inheritdoc />
+        </member>
+        <member name="M:Refit.Implementation.Generated.AppProjectWebApiClientFinancialIFinancialAccountBalanceSummaryClient.#ctor(System.Net.Http.HttpClient,Refit.IRequestBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:Refit.Implementation.Generated.AppProjectWebApiClientFinancialIFinancialAccountBalanceSummaryClient.GetSummariesAsync(AppProject.Models.SearchRequest,System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
         <member name="T:Refit.Implementation.Generated.AppProjectWebApiClientFinancialIFinancialAccountClient">
             <inheritdoc />
         </member>

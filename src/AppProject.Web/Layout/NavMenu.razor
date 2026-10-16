@@ -1,4 +1,4 @@
-﻿@using AppProject.Models.Auth
+@using AppProject.Models.Auth
 @using AppProject.Web.ApiClient.Auth
 @using Microsoft.AspNetCore.Components.Authorization
 
@@ -11,7 +11,8 @@
             @if (permissions?.Contains(PermissionType.Financial_ManageFinancialAccounts) == true
                 || permissions?.Contains(PermissionType.Financial_ManageFinancialCategories) == true
                 || permissions?.Contains(PermissionType.Financial_ManageAccountsPayable) == true
-                || permissions?.Contains(PermissionType.Financial_ManageAccountsReceivable) == true)
+                || permissions?.Contains(PermissionType.Financial_ManageAccountsReceivable) == true
+                || permissions?.Contains(PermissionType.Financial_ViewFinancialAccountBalances) == true)
             {
                 <RadzenPanelMenuItem Text=@StringResource.GetStringByKey("NavMenu_Financial_Title") Icon="account_balance">
                     @if (permissions?.Contains(PermissionType.Financial_ManageFinancialAccounts) == true)
@@ -29,6 +30,10 @@
                     @if (permissions?.Contains(PermissionType.Financial_ManageAccountsReceivable) == true)
                     {
                         <RadzenPanelMenuItem Text=@StringResource.GetStringByKey("NavMenu_Financial_AccountReceivable_Text") Icon="call_received" Path="/financial/accountsreceivable" />
+                    }
+                    @if (permissions?.Contains(PermissionType.Financial_ViewFinancialAccountBalances) == true)
+                    {
+                        <RadzenPanelMenuItem Text=@StringResource.GetStringByKey("NavMenu_Financial_FinancialAccountBalance_Text") Icon="account_balance" Path="/financial/financialaccountbalances" />
                     }
                 </RadzenPanelMenuItem>
             }
