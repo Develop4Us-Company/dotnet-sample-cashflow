@@ -1,19 +1,13 @@
-# DOTNET-TEMPLATE
+# CashFlow
 
-Este é o template que desenvolvemos para permitir que você crie softwares de forma estruturada, seguindo boas práticas de arquitetura e organização de projetos.
+O **CashFlow** é um projeto de controle de contas a pagar e receber, desenvolvido a partir do [dotnet-template](https://github.com/Develop4Us-Company/dotnet-template) durante as aulas do curso [Arquitetura .NET](https://www.udemy.com/course/arquitetura-dotnet/?referralCode=8AD718DAF69DFED4FDD3).
 
-Também criamos um curso completo demonstrando a construção deste template passo a passo, explicando as decisões técnicas e a estrutura utilizada ao longo do desenvolvimento.
-
-Curso: [https://www.udemy.com/course/arquitetura-dotnet/?referralCode=8AD718DAF69DFED4FDD3](https://www.udemy.com/course/arquitetura-dotnet/?referralCode=8AD718DAF69DFED4FDD3)
+O projeto faz parte da série **Construindo Sistemas Reais**, na qual colocamos em prática conceitos de arquitetura e desenvolvimento de software com .NET, utilizando a Inteligência Artificial como apoio na construção das soluções.
 
 ---
 
-## 🔗 Materiais Visuais do Template
+## 🔗 Código desenvolvido nas aulas
 
-### Diagrama da Estrutura do Template
+Todo o código produzido ao longo das aulas está disponível em uma Pull Request, permitindo acompanhar as implementações e consultar as alterações realizadas durante o desenvolvimento.
 
-[https://resin-quill-61538840.figma.site/](https://resin-quill-61538840.figma.site/)
-
-### Arquitetura do Template .NET
-
-[https://night-taste-61903732.figma.site/](https://night-taste-61903732.figma.site/)
+**[Visualizar Pull Request do código gerado nas aulas](https://github.com/Develop4Us-Company/dotnet-sample-cashflow/pull/1)**
